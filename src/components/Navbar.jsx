@@ -7,6 +7,7 @@ import { TbLogin2 } from "react-icons/tb"
 import { BiSolidHomeHeart } from "react-icons/bi";
 import { FiShoppingBag, FiTag } from "react-icons/fi";
 import { BsSearchHeart } from "react-icons/bs";
+import { PiCat, PiDog } from "react-icons/pi";
 
 
 import logo from '../assets/e-commerce-logo.png'
@@ -61,8 +62,14 @@ export const Navbar = () => {
             </Button>
         </Stack>
         </Flex>
-        <Flex bg="primary.500" align="center" p={1}>
-            <InputGroup size='md'>
+        <Flex bg="primary.500" align="center" p="2" justifyContent="center" gap="2">
+            <Button color="primary.600" borderRadius="50%" fontSize="1.5rem">
+                <PiCat />
+            </Button>
+            <Button color="primary.600" borderRadius="50%" fontSize="1.5rem">
+                <PiDog />
+            </Button>
+            <InputGroup size='md' w="60%">
                 <Input
                     pr='4.5rem'
                     type={'text'}
