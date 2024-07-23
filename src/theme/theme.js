@@ -1,5 +1,8 @@
 import { extendTheme } from '@chakra-ui/react'
 
+import '@fontsource/glass-antiqua';
+import '@fontsource/zen-loop';
+
 export const theme = extendTheme({
   colors: {
     primary: {
@@ -14,6 +17,21 @@ export const theme = extendTheme({
       800: '#9e30ff',
       900: '#9319ff',
       A100: '#8802ff',
+    },
+  },
+  fonts: {
+    heading: 'Glass Antiqua, system-ui',
+    body: 'Zen Loop, system-ui',
+    button: 'Zen Loop, system-ui',
+  },
+  styles: {
+    global: {
+      'p': {
+        fontFamily: 'Zen Loop, system-ui',
+      },
+      'button': {
+        fontFamily: 'Zen Loop, system-ui',
+      },
     },
   },
 })
