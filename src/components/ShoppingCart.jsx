@@ -4,7 +4,7 @@ import { LiaShoppingCartSolid } from "react-icons/lia";
 
 export const ShoppingCart = ({ itemCount, onClick }) => {
   return (
-    <Box position="fixed" bottom="20px" right="20px">
+    <Box position="fixed" bottom="30px" right="30px">
       <Button position="relative" color="primary.600" borderRadius="50%" w={16} h={16} onClick={onClick}>
         <LiaShoppingCartSolid fontSize="30px" />
         {itemCount > 0 && (

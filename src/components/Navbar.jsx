@@ -65,7 +65,7 @@ export const Navbar = () => {
               </>
             )}
           </Button>
-          <Button position="relative" color="primary.600" borderRadius="50%" onClick={onCartOpen}>
+          <Button position="relative" color="primary.600" borderRadius="50%">
             <RiMoonClearLine />
           </Button>
         </Stack>
