@@ -22,7 +22,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <Flex bg="white" align="center" paddingBlock={1} gap={1} paddingInline={2}>
+      <Flex bg="white" align="center" paddingBlock={1} gap={1} paddingInline={2} boxShadow="md">
         <IconButton
           aria-label="Open Menu"
           icon={<BsList />}
@@ -142,7 +142,7 @@ export const Navbar = () => {
         </DrawerContent>
       </Drawer>
 
-      <Flex bg="primary.500" align="center" p="2" justifyContent="center" gap="2">
+      <Flex bg="primary.500" align="center" p="2" justifyContent="center" gap="2" boxShadow="md">
         <Button color="primary.600" borderRadius="50%" fontSize="1.5rem">
           <PiCat />
         </Button>

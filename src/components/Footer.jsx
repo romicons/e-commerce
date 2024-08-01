@@ -28,10 +28,12 @@ export const Footer = () => {
             <HStack 
                 bg="white" 
                 alignItems={alignItems} 
-                paddingInline='50px' 
+                paddingInline='50px'
+                paddingBlock='15px' 
                 gap="2" 
                 justifyContent='space-between' 
                 flexDirection={flexDirection}
+                boxShadow="md"
             >
                 <VStack 
                     display='flex' 
@@ -166,7 +168,7 @@ export const Footer = () => {
                 </VStack>
             </HStack>
             
-            <VStack bg="primary.500" align="center" justifyContent='space-between' paddingBlock='10px' gap={1} paddingInline='120px'>
+            <VStack bg="primary.500" align="center" justifyContent='space-between' paddingBlock='10px' gap={1} paddingInline='120px' boxShadow="md">
                 <Text fontSize='sm' textAlign='center'>
                     © Romina Constantinoff - 2024. Todos los derechos reservados. 
                 </Text>
