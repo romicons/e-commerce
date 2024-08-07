@@ -5,8 +5,8 @@ import { LiaShoppingCartSolid } from "react-icons/lia";
 export const ShoppingCart = ({ itemCount, onClick }) => {
   return (
     <Box position="fixed" bottom="30px" right="30px">
-      <Button position="relative" color="primary.600" borderRadius="50%" w={16} h={16} onClick={onClick}>
-        <LiaShoppingCartSolid fontSize="30px" />
+      <Button position="relative" variant='custom' borderRadius="50%" w={16} h={16} onClick={onClick}>
+        <LiaShoppingCartSolid fontSize="30px" aria-label='Shopping Cart Icon'/>
         {itemCount > 0 && (
           <Badge
             position="absolute"

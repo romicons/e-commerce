@@ -18,11 +18,32 @@ export const theme = extendTheme({
       900: '#9319ff',
       A100: '#8802ff',
     },
+    secondary: {
+      100: "#f8f8ff",
+      500: "#373434",
+      900: "#ffac42",
+    }
   },
   fonts: {
     heading: 'Glass Antiqua, system-ui',
     body: 'Zen Loop, system-ui',
     button: 'Zen Loop, system-ui',
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: 'bold',
+      },
+      variants: {
+        custom: {
+          bg: 'primary.700',
+          color: 'secondary.100',
+          _hover: {
+            bg: 'secondary.900',
+          },
+        },
+      },
+    },
   },
   styles: {
     global: {

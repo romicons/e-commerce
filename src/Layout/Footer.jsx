@@ -1,10 +1,10 @@
 import { Box, Button, Heading, Image, HStack, SimpleGrid, Text, VStack, useBreakpointValue } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { AiOutlineTeam } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { PiEnvelopeSimpleThin, PiPhoneLight, PiSealQuestionLight } from "react-icons/pi";
 import { TfiLocationPin } from "react-icons/tfi";
-
-import logo from '../assets/e-commerce-logo.png';
+import logo from '../assets/img/e-commerce-logo.png';
 import americanexpresslogo from '../assets/PaymentMethods/americanexpresslogo.webp';
 import mercadopagologo from '../assets/PaymentMethods/mercadopagologo.webp';
 import visalogo from '../assets/PaymentMethods/visalogo.webp';
@@ -22,16 +22,18 @@ export const Footer = () => {
     const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
     const alignItems = useBreakpointValue({ base: 'center', md: 'flex-start' });
     const columnAlignItems = useBreakpointValue({ base: 'center', md: 'flex-start' });
+    const contactFlexDirection = useBreakpointValue({ base: 'column', md: 'row' });
+    const contactJustifyContent = useBreakpointValue({ base: 'center', md: 'space-between' });
 
-    return(
+    return (
         <>
             <HStack 
-                bg="white" 
+                bg="primary.500" 
                 alignItems={alignItems} 
                 paddingInline='50px'
                 paddingBlock='15px' 
                 gap="2" 
-                justifyContent='space-between' 
+                justifyContent='space-around' 
                 flexDirection={flexDirection}
                 boxShadow="md"
             >
@@ -41,31 +43,26 @@ export const Footer = () => {
                     alignItems={columnAlignItems}
                     height="100%"
                     justifyContent="space-between"
+                    color='secondary.500'
                 >
-                    <Heading as='h3' noOfLines={1} color="primary.600" display="flex" direction="row" alignItems="center">
-                        <Image
-                            boxSize='50px'
-                            objectFit='cover'
-                            src={logo}
-                            alt='Pets Go Logo'
-                        />
-                        Pets Go
+                    <Heading as='h3' noOfLines={1} display="flex" direction="row" alignItems="center">
+                        Contacto
                     </Heading>
                     <HStack>
-                        <TfiLocationPin />
-                        <Text fontSize='lg'>
+                        <Text fontSize='xl' fontWeight='bold' display='flex' alignItems='center' gap='2'>
+                            <TfiLocationPin aria-label='Location Icon'/>
                             Av. Example 123
                         </Text>
                     </HStack>
                     <HStack>
-                        <PiEnvelopeSimpleThin />
-                        <Text fontSize='lg'>
+                        <Text fontSize='xl' display='flex' fontWeight='bold' alignItems='center' gap='2'>
+                            <PiEnvelopeSimpleThin aria-label='Email Icon'/>
                             petsgotiendaonline@gmail.com
                         </Text>
                     </HStack>
                     <HStack>
-                        <PiPhoneLight />
-                        <Text fontSize='lg'>
+                        <Text fontSize='xl' display='flex' fontWeight='bold' alignItems='center' gap='2'>
+                            <PiPhoneLight aria-label='Phone Icon'/>
                             011-123-4567
                         </Text>
                     </HStack>
@@ -76,21 +73,26 @@ export const Footer = () => {
                     alignItems={columnAlignItems}
                     height="100%"
                     justifyContent="space-between"
+                    color='secondary.500'
                 >
-                    <Heading as='h3' noOfLines={1} color="primary.600">
+                    <Heading as='h3' noOfLines={1}>
                         Nosotros
                     </Heading>
                     <HStack>
-                        <AiOutlineTeam />
-                        <Text fontSize='lg'>
-                            Quiénes somos
-                        </Text>
+                        <Link to="/aboutus">
+                            <Text fontSize='xl' display='flex' fontWeight='bold' alignItems='center' gap='2'>
+                                <AiOutlineTeam aria-label='Enterprise Icon'/>
+                                Quiénes somos
+                            </Text>
+                        </Link>
                     </HStack>
                     <HStack>
-                        <PiSealQuestionLight />
-                        <Text fontSize='lg'>
-                            Preguntas frecuentes
-                        </Text>
+                        <Link to="/faq">
+                            <Text fontSize='xl' display='flex' fontWeight='bold' alignItems='center' gap='2'>
+                                <PiSealQuestionLight aria-label='Question Icon'/>
+                                Preguntas frecuentes
+                            </Text>
+                        </Link>
                     </HStack>
                 </VStack>
                 <VStack 
@@ -99,8 +101,9 @@ export const Footer = () => {
                     alignItems={columnAlignItems}
                     height="100%"
                     justifyContent="space-between"
+                    color='secondary.500'
                 >
-                    <Heading as='h3' noOfLines={1} color="primary.600">
+                    <Heading as='h3' noOfLines={1}>
                         Métodos de pago
                     </Heading>
                     <SimpleGrid columns={4} spacing='10px'>
@@ -168,20 +171,29 @@ export const Footer = () => {
                 </VStack>
             </HStack>
             
-            <VStack bg="primary.500" align="center" justifyContent='space-between' paddingBlock='10px' gap={1} paddingInline='120px' boxShadow="md">
+            <VStack 
+                bg="secondary.100" 
+                align="center" 
+                justifyContent={contactJustifyContent} 
+                paddingBlock='10px' 
+                gap={1} 
+                paddingInline='120px' 
+                boxShadow="md"
+                flexDirection={contactFlexDirection}
+            >
                 <Text fontSize='sm' textAlign='center'>
                     © Romina Constantinoff - 2024. Todos los derechos reservados. 
                 </Text>
                 <Box display="flex" flexDirection="column" alignItems="center">
                     <HStack gap='3'>
-                        <Button href="https://github.com/romicons">
-                            <FaGithub />
+                        <Button href="https://github.com/romicons" color='primary.600' _hover={{ color: 'secondary.900'}}>
+                            <FaGithub aria-label='Github Icon'/>
                         </Button>
-                        <Button href="https://www.linkedin.com/in/romina-evelin-constantinoff/"> 
-                            <FaLinkedinIn />
+                        <Button href="https://www.linkedin.com/in/romina-evelin-constantinoff/" color='primary.600' _hover={{ color: 'secondary.900'}}> 
+                            <FaLinkedinIn aria-label='LinkedIn Icon'/>
                         </Button>
-                        <Button href="mailto:romina.constantinoff@gmail.com" >
-                            <PiEnvelopeSimpleThin />
+                        <Button href="mailto:romina.constantinoff@gmail.com" color='primary.600' _hover={{ color: 'secondary.900'}}>
+                            <PiEnvelopeSimpleThin aria-label='Email Icon'/>
                         </Button>
                     </HStack>
                 </Box>

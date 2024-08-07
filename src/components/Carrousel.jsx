@@ -15,9 +15,9 @@ export const Carrousel = () => {
             height       : '100%',
           } }>
             <SplideTrack>
-                <SplideSlide><img src={firstSlide} alt="Image 1"/></SplideSlide>
-                <SplideSlide><img src={firstSlide} alt="Image 2"/></SplideSlide>
-                <SplideSlide><img src={firstSlide} alt="Image 3"/></SplideSlide>
+                <SplideSlide><img src={firstSlide} alt="Image 1" /></SplideSlide>
+                <SplideSlide><img src={firstSlide} alt="Image 2" /></SplideSlide>
+                <SplideSlide><img src={firstSlide} alt="Image 3" /></SplideSlide>
             </SplideTrack>
 
             <div className="splide__progress">
