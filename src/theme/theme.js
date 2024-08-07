@@ -1,28 +1,38 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react';
 
 import '@fontsource/glass-antiqua';
 import '@fontsource/zen-loop';
 
 export const theme = extendTheme({
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  },
   colors: {
     primary: {
-      50: '#f5e8ff',
-      100: '#ebd1ff',
-      200: '#e0baff',
-      300: '#d5a3ff',
-      400: '#ca8cff',
       500: '#bf75ff',
       600: '#b45eff',
       700: '#a947ff',
-      800: '#9e30ff',
-      900: '#9319ff',
-      A100: '#8802ff',
     },
     secondary: {
       100: "#f8f8ff",
+      300: "#fff5ee",
       500: "#373434",
       900: "#ffac42",
-    }
+    },
+    dark: {
+      primary: {
+        500: '#bf75ff',
+        600: '#b45eff',
+        700: '#a947ff',
+      },
+      secondary: {
+        100: "#1a1a1a", 
+        300: "#292929",
+        500: "#e0e0e0",
+        900: "#ffac42",
+      },
+    },
   },
   fonts: {
     heading: 'Glass Antiqua, system-ui',
@@ -42,17 +52,39 @@ export const theme = extendTheme({
             bg: 'secondary.900',
           },
         },
+        custom2: {
+          bg: {
+            light: 'secondary.100',
+            dark: 'secondary.500',
+          },
+          color: {
+            light: 'primary.500',
+            dark: 'primary.600',
+          },
+          _hover: {
+            color: {
+              light: 'secondary.900',
+              dark: 'secondary.100',
+            },
+          },
+        },
       },
     },
   },
   styles: {
-    global: {
-      'p': {
+    global: (props) => ({
+      p: {
         fontFamily: 'Zen Loop, system-ui',
       },
-      'button': {
+      button: {
         fontFamily: 'Zen Loop, system-ui',
       },
-    },
+      body: {
+        bg: props.colorMode === 'dark'
+          ? 'linear-gradient(to bottom right, secondary.500, secondary.500)'
+          : 'linear-gradient(to bottom right, secondary.100, secondary.300)',
+        color: props.colorMode === 'dark' ? 'dark.500' : 'secondary.500',
+      },
+    }),
   },
-})
+});

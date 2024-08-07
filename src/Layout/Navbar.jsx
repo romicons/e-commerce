@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex, Heading, IconButton, Image, Input, InputGroup, InputRightElement, Spacer, Stack, Text, useDisclosure, Link as ChakraLink } from '@chakra-ui/react';
+
+import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex, Heading, IconButton, Image, Input, InputGroup, InputRightElement, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
+
 import { Link } from "react-router-dom";
 import { ShoppingCart } from '../components/ShoppingCart';
 import { TbLogin2 } from "react-icons/tb";
@@ -7,11 +9,12 @@ import { BiSolidHomeHeart } from "react-icons/bi";
 import { FiShoppingBag, FiTag } from "react-icons/fi";
 import { BsSearchHeart, BsList } from "react-icons/bs";
 import { PiCat, PiDog } from "react-icons/pi";
-import { RiMoonClearLine } from "react-icons/ri";
+import { RiMoonClearLine, RiSunLine } from "react-icons/ri";
 import { LiaShoppingCartSolid } from "react-icons/lia";
+
 import logo from '../assets/img/e-commerce-logo.png';
 
-export const Navbar = () => {
+export const Navbar = ({ onToggleColorMode, colorMode }) => {
   const { isOpen: isNavOpen, onOpen: onNavOpen, onClose: onNavClose } = useDisclosure();
   const { isOpen: isCartOpen, onOpen: onCartOpen, onClose: onCartClose } = useDisclosure();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,7 +23,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <Flex bg="secondary.100" align="center" paddingBlock={1} gap={5} paddingInline={2} boxShadow="md">
+      <Flex bg={useColorModeValue("secondary.100", "dark.100")} align="center" paddingBlock={1} gap={5} paddingInline={2} boxShadow="md">
         <IconButton
           aria-label="Open Menu"
           icon={<BsList />}
@@ -136,9 +139,14 @@ export const Navbar = () => {
               </>
             )}
           </Button>
-          <Button position="relative" color="primary.600" borderRadius="50%" _hover={{ color: 'secondary.900'}}>
-            <RiMoonClearLine aria-label='Nocturne Mode Icon'/>
-          </Button>
+          <IconButton
+            aria-label={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}
+            icon={colorMode === 'light' ? <RiMoonClearLine /> : <RiSunLine />}
+            onClick={onToggleColorMode}
+            color="primary.600"
+            borderRadius="50%"
+            _hover={{ color: 'secondary.900' }}
+          />
         </Stack>
       </Flex>
 
@@ -289,10 +297,28 @@ export const Navbar = () => {
       </Drawer>
 
       <Flex bg="primary.500" align="center" p="2" justifyContent="center" gap="2" boxShadow="md">
-        <Button color="primary.600" borderRadius="50%" fontSize="1.5rem">
+        <Button
+          variant='custom2'
+          borderRadius="50%"
+          fontSize="1.5rem"
+          bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
+          color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
+          _hover={{
+            color: 'secondary.900'
+          }}
+        >
           <PiCat aria-label='Cat Filter Icon'/>
         </Button>
-        <Button color="primary.600" borderRadius="50%" fontSize="1.5rem">
+        <Button
+          variant='custom2'
+          borderRadius="50%"
+          fontSize="1.5rem"
+          bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
+          color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
+          _hover={{
+            color: 'secondary.900'
+          }}
+        >
           <PiDog aria-label='Dog Filter Icon'/>
         </Button>
         <InputGroup size='md' w="60%">
@@ -303,7 +329,11 @@ export const Navbar = () => {
             _placeholder={{ color: '#000000' }}
           />
           <InputRightElement width='4.5rem'>
-            <Button h='1.75rem' size='sm' color="primary.600" aria-label='Search Button'>
+            <Button h='1.75rem' size='sm' variant='custom2'  bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
+          color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
+          _hover={{
+            color: 'secondary.900'
+          }} aria-label='Search Button'>
               <BsSearchHeart />
             </Button>
           </InputRightElement>

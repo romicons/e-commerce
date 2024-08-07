@@ -1,10 +1,12 @@
-import { Box, Button, Heading, Image, HStack, SimpleGrid, Text, VStack, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Button, Heading, HStack, Image, Link as ChakraLink, SimpleGrid, Text, VStack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
+
 import { Link } from 'react-router-dom';
+
 import { AiOutlineTeam } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { PiEnvelopeSimpleThin, PiPhoneLight, PiSealQuestionLight } from "react-icons/pi";
 import { TfiLocationPin } from "react-icons/tfi";
-import logo from '../assets/img/e-commerce-logo.png';
+
 import americanexpresslogo from '../assets/PaymentMethods/americanexpresslogo.webp';
 import mercadopagologo from '../assets/PaymentMethods/mercadopagologo.webp';
 import visalogo from '../assets/PaymentMethods/visalogo.webp';
@@ -80,18 +82,60 @@ export const Footer = () => {
                     </Heading>
                     <HStack>
                         <Link to="/aboutus">
-                            <Text fontSize='xl' display='flex' fontWeight='bold' alignItems='center' gap='2'>
+                            <ChakraLink 
+                            as={Text} 
+                            display='flex' 
+                            alignItems='center'
+                            gap='2'
+                            fontSize={20}
+                            fontWeight='bold'
+                            position="relative"
+                            _hover={{ color: 'secondary.100', _after: { transform: 'scaleX(1)', transformOrigin: 'bottom left' } }}
+                            _after={{
+                                content: "''",
+                                position: "absolute",
+                                width: "100%",
+                                transform: "scaleX(0)",
+                                height: "2px",
+                                bottom: 0,
+                                left: 0,
+                                backgroundColor: "secondary.100",
+                                transformOrigin: "bottom right",
+                                transition: "transform 0.25s ease-out",
+                            }}
+                            >
                                 <AiOutlineTeam aria-label='Enterprise Icon'/>
                                 Quiénes somos
-                            </Text>
+                            </ChakraLink>
                         </Link>
                     </HStack>
                     <HStack>
                         <Link to="/faq">
-                            <Text fontSize='xl' display='flex' fontWeight='bold' alignItems='center' gap='2'>
+                            <ChakraLink 
+                            as={Text} 
+                            display='flex' 
+                            alignItems='center'
+                            gap='2'
+                            fontSize={20}
+                            fontWeight='bold'
+                            position="relative"
+                            _hover={{ color: 'secondary.100', _after: { transform: 'scaleX(1)', transformOrigin: 'bottom left' } }}
+                            _after={{
+                                content: "''",
+                                position: "absolute",
+                                width: "100%",
+                                transform: "scaleX(0)",
+                                height: "2px",
+                                bottom: 0,
+                                left: 0,
+                                backgroundColor: "secondary.100",
+                                transformOrigin: "bottom right",
+                                transition: "transform 0.25s ease-out",
+                            }}
+                            >
                                 <PiSealQuestionLight aria-label='Question Icon'/>
                                 Preguntas frecuentes
-                            </Text>
+                            </ChakraLink>
                         </Link>
                     </HStack>
                 </VStack>
@@ -172,7 +216,7 @@ export const Footer = () => {
             </HStack>
             
             <VStack 
-                bg="secondary.100" 
+                bg={useColorModeValue("secondary.100", "dark.100")} 
                 align="center" 
                 justifyContent={contactJustifyContent} 
                 paddingBlock='10px' 
@@ -181,7 +225,7 @@ export const Footer = () => {
                 boxShadow="md"
                 flexDirection={contactFlexDirection}
             >
-                <Text fontSize='sm' textAlign='center'>
+                <Text fontSize='lg' textAlign='center'>
                     © Romina Constantinoff - 2024. Todos los derechos reservados. 
                 </Text>
                 <Box display="flex" flexDirection="column" alignItems="center">
