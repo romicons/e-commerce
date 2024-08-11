@@ -1,32 +1,50 @@
-import { Box, Heading, HStack, SimpleGrid, Text, VStack } from "@chakra-ui/react"
-
+import { Box, Heading, VStack, Image, Text, Stack, SimpleGrid } from "@chakra-ui/react";
 import { FaBolt, FaCheckCircle, FaHandsHelping, FaLightbulb, FaRibbon, FaSun } from "react-icons/fa";
 
+import catImg from '../assets/img/cat1.jpg';
+import dogImg from '../assets/img/dog1.jpg';
+
 export const AboutUs = () => {
-    return(
-        <VStack paddingBlock={5}>
-            <Heading as="h2">
+    return (
+        <VStack paddingBlock={5} gap={0}>
+            <Heading as="h2" paddingBottom={4}>
                 QUIÉNES SOMOS
             </Heading>
-            <HStack padding={4}>
-                <Box w='50%'>
-
+            <Stack
+                direction={['column', 'row']} gap={5} p
+            >
+                <Box w={['100%', '50%']}>
+                    <Image
+                        boxSize='100%'
+                        objectFit='cover'
+                        filter='grayscale()'
+                        src={catImg}
+                        alt='Cat Image'
+                    />
                 </Box>
-                <Box w='50%'>
-                    <Heading as='h3' fontSize='3xl'>
+                <Box w={['100%', '50%']} paddingInline={5}>
+                    <Heading as='h3' fontSize='3xl' textAlign={['center', 'left']}>
                         Nuestra misión
                     </Heading>
-                    <Text>
-                    Buscamos contribuir en la creación de un mundo mejor. Nuestro objetimos es ayudarte a amar y proteger a sus mascotas.
-                    Creamos equipos de trabajo solidarios, proactivos y capacitados.
-                    Invertimos e innovamos para mejorar nuestro servicio y acercarnos cada día más.
-                    Priorizamos el aporte y la participación solidaria para crear una comunidad inclusiva y el cuidado del medio ambiente.
+                    <Text paddingBlock={5}>
+                        Buscamos contribuir en la creación de un mundo mejor. Nuestro objetivo es ayudarte a amar y proteger a tus mascotas.
+                        Creamos equipos de trabajo solidarios, proactivos y capacitados.
+                        Invertimos e innovamos para mejorar nuestro servicio y acercarnos cada día más.
+                        Priorizamos el aporte y la participación solidaria para crear una comunidad inclusiva y el cuidado del medio ambiente.
                     </Text>
                 </Box>
-            </HStack>
-            <HStack  padding={4}>
-                <Box w='50%'>
-                    <Heading as='h3' fontSize='3xl'>
+            </Stack>
+            <Box w='100%' bg='primary.600' paddingBlock={2}>
+                <Heading as='h2' fontSize='3xl' textAlign='center'>
+                    LO MEJOR PARA TU FAMILIA
+                </Heading>
+            </Box>
+            <Stack
+                direction={['column', 'row']}
+                align="center"
+            >
+                <Box w={['100%', '50%']} paddingInline={5}>
+                    <Heading as='h3' fontSize='3xl' textAlign={['center', 'right']} paddingBlock={5}>
                         Nuestros valores
                     </Heading>
                     <Text>
@@ -34,10 +52,16 @@ export const AboutUs = () => {
                         Con servicio, cumplimiento, agilidad, calidez, compromiso e innovación.
                     </Text>
                 </Box>
-                <Box>
-
+                <Box w={['100%', '50%']}>
+                    <Image
+                        boxSize='100%'
+                        objectFit='cover'
+                        filter='grayscale()'
+                        src={dogImg}
+                        alt='Dog Image'
+                    />
                 </Box>
-            </HStack>
+            </Stack>
             <SimpleGrid 
                 columns={[1, 3]}
                 spacing='30px' 
@@ -59,7 +83,7 @@ export const AboutUs = () => {
                         Cumplimiento
                     </Heading>
                     <Text>
-                        Es la flexibilidad con la que desarrollamos nuestro negocio y nos adaptamos constantemente a las necesidades y deseos de nuestros clientes.
+                        Mantenemos nuestra palabra en cada aspecto del negocio. Nos esforzamos por cumplir con nuestros compromisos de manera eficiente y puntual, asegurando que las expectativas de nuestros clientes se conviertan en realidades, sin comprometer la calidad ni la atención al detalle.
                     </Text>
                 </Box>
                 <Box w='300px'>
@@ -100,5 +124,5 @@ export const AboutUs = () => {
                 </Box>
             </SimpleGrid>
         </VStack>
-    )
-}
+    );
+};

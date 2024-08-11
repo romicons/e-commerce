@@ -7,7 +7,7 @@ import { FaBone } from "react-icons/fa";
 
 export const Categories = () => {
     return(
-        <VStack paddingBlock={5}>
+        <VStack paddingBlock={6}>
             <Heading as="h2">
                 CATEGORÍAS
             </Heading>
