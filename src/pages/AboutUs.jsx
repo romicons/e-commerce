@@ -11,7 +11,7 @@ export const AboutUs = () => {
                 QUIÉNES SOMOS
             </Heading>
             <Stack
-                direction={['column', 'row']} gap={5} p
+                direction={['column', 'row']} gap={5}
             >
                 <Box w={['100%', '50%']}>
                     <Image
