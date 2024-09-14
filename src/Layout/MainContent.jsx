@@ -14,7 +14,6 @@ export const MainContent = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
       <VStack
         w="100%"
-        minH="100vh"
         boxShadow="md"
       >
         <Routes>

@@ -1,18 +1,12 @@
-import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react"
+export const ProductDetail = () => {
 
-import { Link } from "react-router-dom";
-
-import { GiDogBowl, GiDogHouse, GiHeartPlus, GiSoap } from "react-icons/gi";
-import { FaBone } from "react-icons/fa";
-
-export const Products = () => {
-    return(
+    return (
         <VStack paddingBlock={6}>
             <Heading as="h2">
-                Productos
+                CATEGORÍAS
             </Heading>
             <SimpleGrid 
-                columns={[1, 5]}
+                columns={[1, 3]}
                 spacing='30px' 
                 alignItems='center' 
                 paddingBlock={4}
