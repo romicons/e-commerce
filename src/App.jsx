@@ -1,14 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 
-import { ChakraProvider, CSSReset, Box, useColorMode, IconButton, Flex } from '@chakra-ui/react';
+import { ChakraProvider, CSSReset, useColorMode, IconButton, Flex } from '@chakra-ui/react';
 
 import { theme } from './theme/theme.js';
 
 import { Footer } from "./Layout/Footer";
 import { Navbar } from "./Layout/Navbar";
 import { MainContent } from './Layout/MainContent';
-
-import { RiMoonClearLine, RiSunLine } from 'react-icons/ri';
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -18,7 +16,7 @@ function App() {
     if (savedMode) {
       document.documentElement.setAttribute('data-theme', savedMode);
     }
-  }, []);
+  }, []); 
 
   useEffect(() => {
     localStorage.setItem('color-mode', colorMode);
