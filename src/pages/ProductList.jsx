@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Heading, SimpleGrid, VStack, Text, Button } from "@chakra-ui/react";
+import { Button, Heading, SimpleGrid, Spinner, Text, VStack} from "@chakra-ui/react";
 import { Product } from '../components/Product';
 import { ProductsContext } from '../context/ProductsContext';
 
@@ -22,12 +22,12 @@ export const ProductList = () => {
   const filteredProducts = productsArray.filter((product) => product.category === category);
 
   if (isLoading) {
-    return <Text>Cargando productos...</Text>; 
+    return <Spinner size='lg' color="primary.600" />;
   }
 
   return (
     <VStack paddingBlock={6}>
-      <Heading as="h2">Productos de {categoryNames[category] || category}</Heading>
+      <Heading textAlign='center' as="h2">Productos de {categoryNames[category] || category}</Heading>
 
       {filteredProducts.length === 0 ? (
         <Text>¡Lo sentimos! No hay productos disponibles en esta categoría.</Text>

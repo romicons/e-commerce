@@ -18,7 +18,6 @@ export const ProductsProvider = ({ children }) => {
         return { id: product.id, ...product.data() };
       });
 
-      console.log(newProductsArray)
       setProductsArray(newProductsArray); 
       setProductsCounter(newProductsArray.length); 
       setIsLoading(false); 
