@@ -29,7 +29,9 @@ export const Products = () => {
                         <Product key={product.id} product={product} />
                         ))
                     ) : (
-                        <div>No products found.</div>
+                        <Text fontSize='3xl'>
+                            Lo sentimos, no se encontraron productos.
+                        </Text>
                     )}
             </SimpleGrid>
         </VStack>

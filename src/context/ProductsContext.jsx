@@ -6,7 +6,7 @@ export const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [productsArray, setProductsArray] = useState([]);
-  const [productsCounter, setProductsCounter] = useState(0); // Inicializa como número
+  const [productsCounter, setProductsCounter] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

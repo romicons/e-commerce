@@ -1,4 +1,4 @@
-import { Box, Button, Heading, HStack, Image, Link as ChakraLink, SimpleGrid, Text, VStack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, HStack, IconButton, Image, Link as ChakraLink, SimpleGrid, Text, VStack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
 
 import { Link } from 'react-router-dom';
 
@@ -228,19 +228,40 @@ export const Footer = () => {
                 <Text fontSize='lg' textAlign='center'>
                     © Romina Constantinoff - 2024. Todos los derechos reservados. 
                 </Text>
+                
                 <Box display="flex" flexDirection="column" alignItems="center">
-                    <HStack gap='3'>
-                        <Button href="https://github.com/romicons" color='primary.600' _hover={{ color: 'secondary.900'}}>
-                            <FaGithub aria-label='Github Icon'/>
-                        </Button>
-                        <Button href="https://www.linkedin.com/in/romina-evelin-constantinoff/" color='primary.600' _hover={{ color: 'secondary.900'}}> 
-                            <FaLinkedinIn aria-label='LinkedIn Icon'/>
-                        </Button>
-                        <Button href="mailto:romina.constantinoff@gmail.com" color='primary.600' _hover={{ color: 'secondary.900'}}>
-                            <PiEnvelopeSimpleThin aria-label='Email Icon'/>
-                        </Button>
-                    </HStack>
-                </Box>
+  <HStack gap="3">
+    <IconButton
+      as="a"
+      href="https://github.com/romicons"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Github"
+      icon={<FaGithub />}
+      color="primary.600"
+      _hover={{ color: "secondary.900" }}
+    />
+    <IconButton
+      as="a"
+      href="https://www.linkedin.com/in/romina-evelin-constantinoff/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn"
+      icon={<FaLinkedinIn />}
+      color="primary.600"
+      _hover={{ color: "secondary.900" }}
+    />
+    <IconButton
+      as="a"
+      href="mailto:romina.constantinoff@gmail.com"
+      aria-label="Email"
+      icon={<PiEnvelopeSimpleThin />}
+      color="primary.600"
+      _hover={{ color: "secondary.900" }}
+    />
+  </HStack>
+</Box>
+
             </VStack>
         </>
     );

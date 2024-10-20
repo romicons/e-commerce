@@ -1,4 +1,4 @@
-export const ProductDetail = () => {
+export const ProductDetail = ({product}) => {
 
     return (
         <VStack paddingBlock={6}>
@@ -8,7 +8,7 @@ export const ProductDetail = () => {
                     <Box w='250px' boxShadow="md" display='flex' flexDirection='column' alignItems='center' justifyContent='center' gap={4} borderRadius='10px' paddingBlock={8} _hover={{ color:'secondary.900' }}>
                             <GiDogHouse fontSize='60px' />
                             <Heading as='h3' fontSize='2xl'>
-                                Accesorios
+                                {product.name}
                             </Heading>
                     </Box>
         </VStack>

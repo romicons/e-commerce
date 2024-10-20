@@ -1,5 +1,7 @@
 import { Button, Heading, Image, Text, VStack } from "@chakra-ui/react"
 
+import { IoArrowForwardOutline } from "react-icons/io5";
+
 export const Product = ({product}) => {
     return (
         <VStack padding={4} gap={2} boxShadow="md" w='300px' justifyContent='center' alignItems='center' borderRadius='lg'>
@@ -18,7 +20,8 @@ export const Product = ({product}) => {
             <Heading as="h4" fontSize={18}>
                 ${product.price}
             </Heading>
-            <Button variant='custom'>
+            <Button variant='custom' gap={1}>
+                <IoArrowForwardOutline />
                 Ver detalles
             </Button>
         </VStack>
