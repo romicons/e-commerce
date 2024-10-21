@@ -1,5 +1,4 @@
 import { extendTheme } from '@chakra-ui/react';
-
 import '@fontsource/glass-antiqua';
 import '@fontsource/zen-loop';
 
@@ -73,18 +72,26 @@ export const theme = extendTheme({
   },
   styles: {
     global: (props) => ({
+      body: {
+        bg: props.colorMode === 'dark'
+          ? 'linear-gradient(to bottom right, dark.secondary.100, dark.secondary.300)'
+          : 'linear-gradient(to bottom right, secondary.100, secondary.300)',
+        color: props.colorMode === 'dark' ? 'dark.secondary.500' : 'secondary.500',
+      },
+      nav: {
+        bg: props.colorMode === 'dark' ? 'dark.secondary.100' : 'secondary.100',
+        color: props.colorMode === 'dark' ? 'dark.primary.500' : 'primary.600',
+      },
+      footer: {
+        bg: props.colorMode === 'dark' ? 'dark.secondary.100' : 'secondary.100',
+        color: props.colorMode === 'dark' ? 'dark.primary.500' : 'primary.600',
+      },
       p: {
         fontFamily: 'Zen Loop, system-ui',
       },
       button: {
         fontFamily: 'Zen Loop, system-ui',
       },
-      body: {
-        bg: props.colorMode === 'dark'
-          ? 'linear-gradient(to bottom right, secondary.500, secondary.500)'
-          : 'linear-gradient(to bottom right, secondary.100, secondary.300)',
-        color: props.colorMode === 'dark' ? 'dark.500' : 'secondary.500',
-      },
     }),
-  },
+  },  
 });

@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex, Heading, IconButton, Image, Input, InputGroup, InputRightElement, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
 
-import { Link } from "react-router-dom";
 import { ShoppingCart } from '../components/ShoppingCart';
+
 import { TbLogin2 } from "react-icons/tb";
 import { BiSolidHomeHeart } from "react-icons/bi";
 import { FiShoppingBag, FiTag } from "react-icons/fi";
@@ -11,19 +12,24 @@ import { BsSearchHeart, BsList } from "react-icons/bs";
 import { PiCat, PiDog } from "react-icons/pi";
 import { RiMoonClearLine, RiSunLine } from "react-icons/ri";
 import { LiaShoppingCartSolid } from "react-icons/lia";
-
 import logo from '../assets/img/e-commerce-logo.png';
 
 export const Navbar = ({ onToggleColorMode, colorMode }) => {
   const { isOpen: isNavOpen, onOpen: onNavOpen, onClose: onNavClose } = useDisclosure();
   const { isOpen: isCartOpen, onOpen: onCartOpen, onClose: onCartClose } = useDisclosure();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const itemCount = [];
 
   return (
-    <>
-      <Flex bg={useColorModeValue("secondary.100", "dark.100")} align="center" paddingBlock={1} gap={5} paddingInline={2} boxShadow="md">
+    <Stack position='sticky' top='0' gap={0} zIndex={99}>
+      <Flex 
+        bg={useColorModeValue("secondary.100", "dark.secondary.100")} 
+        align="center" 
+        paddingBlock={1} 
+        gap={5} 
+        paddingInline={2} 
+        boxShadow="md"
+      >
         <IconButton
           aria-label="Open Menu"
           icon={<BsList />}
@@ -48,7 +54,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
               display="flex" 
               alignItems="center" 
               gap="5px" 
-              color="primary.600" 
+              color={useColorModeValue("primary.600", "primary.200")} 
               fontSize={20}
               fontWeight='bold'
               position="relative"
@@ -76,7 +82,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
               display="flex" 
               alignItems="center" 
               gap="5px" 
-              color="primary.600" 
+              color={useColorModeValue("primary.600", "primary.200")} 
               fontSize={20}
               fontWeight='bold'
               position="relative"
@@ -104,7 +110,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
               display="flex" 
               alignItems="center" 
               gap="5px" 
-              color="primary.600" 
+              color={useColorModeValue("primary.600", "primary.200")} 
               fontSize={20} 
               fontWeight='bold'
               position="relative"
@@ -150,10 +156,61 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
         </Stack>
       </Flex>
 
+      <Flex 
+        bg='primary.500' 
+        align="center" 
+        p="2" 
+        justifyContent="center" 
+        gap="2" 
+        boxShadow="md"
+      >
+        <Button
+          variant='custom2'
+          borderRadius="50%"
+          fontSize="1.5rem"
+          bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
+          color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
+          _hover={{
+            color: 'secondary.900'
+          }}
+        >
+          <PiCat aria-label='Cat Filter Icon'/>
+        </Button>
+        <Button
+          variant='custom2'
+          borderRadius="50%"
+          fontSize="1.5rem"
+          bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
+          color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
+          _hover={{
+            color: 'secondary.900'
+          }}
+        >
+          <PiDog aria-label='Dog Filter Icon'/>
+        </Button>
+        <InputGroup size='md' w="60%">
+          <Input
+            pr='4.5rem'
+            type={'text'}
+            placeholder='Buscá tu marca favorita...'
+            _placeholder={{ color: '#000000' }}
+          />
+          <InputRightElement width='4.5rem'>
+            <Button h='1.75rem' size='sm' variant='custom2'  bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
+              color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
+              _hover={{
+                color: 'secondary.900'
+              }} aria-label='Search Button'>
+              <BsSearchHeart />
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+      </Flex>
+
       <Drawer placement="left" onClose={onNavClose} isOpen={isNavOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton color='primary.600' />
+          <DrawerCloseButton color={useColorModeValue('primary.600', 'primary.200')} />
           <DrawerHeader display="flex" alignItems="center" gap="2" boxShadow="md" padding="2">
             <Image
               boxSize='50px'
@@ -161,13 +218,13 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
               src={logo}
               alt='Pets Go Logo'
             />
-            <Heading as='h3' color="primary.600">
+            <Heading as='h3' color={useColorModeValue("primary.600", "primary.200")}>
               Pets Go
             </Heading>
           </DrawerHeader>
           <DrawerBody paddingTop={5}>
             <Stack spacing="16px">
-              <Link to="/">
+              <Link to="/" onClick={onNavClose}>
                 <ChakraLink 
                   as={Text} 
                   width='50%'
@@ -176,7 +233,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
                   justifyContent='center'
                   margin='0 auto'
                   gap="5px" 
-                  color="primary.600" 
+                  color={useColorModeValue("primary.600", "primary.200")} 
                   fontSize={20}
                   fontWeight='bold'
                   position="relative"
@@ -198,8 +255,8 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
                   Home
                 </ChakraLink>
               </Link>
-              <Link to="/categories">
-              <ChakraLink 
+              <Link to="/categories" onClick={onNavClose}>
+                <ChakraLink 
                   as={Text} 
                   width='50%'
                   display="flex" 
@@ -207,7 +264,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
                   justifyContent='center'
                   margin='0 auto'
                   gap="5px" 
-                  color="primary.600" 
+                  color={useColorModeValue("primary.600", "primary.200")} 
                   fontSize={20}
                   fontWeight='bold'
                   position="relative"
@@ -229,8 +286,8 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
                   Categorías
                 </ChakraLink>
               </Link>
-              <Link to="/products">
-              <ChakraLink 
+              <Link to="/products" onClick={onNavClose}>
+                <ChakraLink 
                   as={Text} 
                   width='50%'
                   display="flex" 
@@ -238,7 +295,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
                   justifyContent='center'
                   margin='0 auto'
                   gap="5px" 
-                  color="primary.600" 
+                  color={useColorModeValue("primary.600", "primary.200")} 
                   fontSize={20}
                   fontWeight='bold'
                   position="relative"
@@ -296,51 +353,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
         </DrawerContent>
       </Drawer>
 
-      <Flex bg="primary.500" align="center" p="2" justifyContent="center" gap="2" boxShadow="md">
-        <Button
-          variant='custom2'
-          borderRadius="50%"
-          fontSize="1.5rem"
-          bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
-          color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
-          _hover={{
-            color: 'secondary.900'
-          }}
-        >
-          <PiCat aria-label='Cat Filter Icon'/>
-        </Button>
-        <Button
-          variant='custom2'
-          borderRadius="50%"
-          fontSize="1.5rem"
-          bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
-          color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
-          _hover={{
-            color: 'secondary.900'
-          }}
-        >
-          <PiDog aria-label='Dog Filter Icon'/>
-        </Button>
-        <InputGroup size='md' w="60%">
-          <Input
-            pr='4.5rem'
-            type={'text'}
-            placeholder='Buscá tu marca favorita...'
-            _placeholder={{ color: '#000000' }}
-          />
-          <InputRightElement width='4.5rem'>
-            <Button h='1.75rem' size='sm' variant='custom2'  bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
-          color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
-          _hover={{
-            color: 'secondary.900'
-          }} aria-label='Search Button'>
-              <BsSearchHeart />
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </Flex>
-
-      <ShoppingCart itemCount={itemCount.length} onClick={onCartOpen}/>
-    </>
+      <ShoppingCart onClick={onCartOpen} onClose={onCartClose} />
+    </Stack>
   );
 };
