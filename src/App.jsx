@@ -1,9 +1,5 @@
-import { useEffect, useContext } from 'react';
-
-import { ChakraProvider, CSSReset, useColorMode, IconButton, Flex } from '@chakra-ui/react';
-
-import { theme } from './theme/theme.js';
-
+import { useEffect } from 'react';
+import { useColorMode, Flex } from '@chakra-ui/react';
 import { Footer } from "./Layout/Footer";
 import { Navbar } from "./Layout/Navbar";
 import { MainContent } from './Layout/MainContent';
@@ -20,17 +16,15 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('color-mode', colorMode);
+    document.documentElement.setAttribute('data-theme', colorMode);
   }, [colorMode]);
 
   return (
-    <ChakraProvider theme={theme}>
-      <CSSReset />
-      <Flex direction='column' justifyContent='space-between' minHeight='100vh'>
-        <Navbar onToggleColorMode={toggleColorMode} colorMode={colorMode} />
-        <MainContent />
-        <Footer />
-      </Flex>
-    </ChakraProvider>
+    <Flex direction='column' justifyContent='space-between' minHeight='100vh'>
+      <Navbar onToggleColorMode={toggleColorMode} colorMode={colorMode} />
+      <MainContent />
+      <Footer />
+    </Flex>
   );
 }
 

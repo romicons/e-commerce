@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Button, Heading, SimpleGrid, Spinner, Text, VStack} from "@chakra-ui/react";
+import { Button, Flex, Heading, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
 import { Product } from '../components/Product';
 import { ProductsContext } from '../context/ProductsContext';
-
 import { IoArrowBackOutline } from "react-icons/io5";
 
 export const ProductList = () => {
@@ -22,8 +21,16 @@ export const ProductList = () => {
   const filteredProducts = productsArray.filter((product) => product.category === category);
 
   if (isLoading) {
-    return <Spinner size='lg' color="primary.600" />;
-  }
+    return (
+      <Flex
+      width="100%"
+      height="100vh"
+      alignItems="center" 
+      justifyContent="center" 
+      >
+          <Spinner size='lg' color="primary.600" />
+      </Flex>
+  )}
 
   return (
     <VStack paddingBlock={6}>
@@ -46,7 +53,12 @@ export const ProductList = () => {
       <Button
         gap={1}
         variant='custom'
-        onClick={() => navigate("/categories")}
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => {
+            navigate("/categories");
+          }, 300); 
+        }}
       >
         <IoArrowBackOutline />
         Regresar

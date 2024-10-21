@@ -1,6 +1,6 @@
 import { useContext } from "react"
 
-import { Heading, SimpleGrid, Spinner, VStack } from "@chakra-ui/react"
+import { Flex, Heading, SimpleGrid, Spinner, VStack } from "@chakra-ui/react"
 
 import { ProductsContext } from "../context/ProductsContext"
 
@@ -10,8 +10,16 @@ export const Products = () => {
     const { productsArray, isLoading } = useContext(ProductsContext);
 
     if (isLoading) {
-        return <Spinner size='lg' color="primary.600" />;
-      }
+        return (
+            <Flex
+            width="100%"
+            height="100vh" // Ocupa toda la altura de la ventana
+            alignItems="center" // Centra verticalmente
+            justifyContent="center" // Centra horizontalmente
+            >
+                <Spinner size='lg' color="primary.600" />
+            </Flex>
+        )}
 
     return(
         <VStack paddingBlock={6}>

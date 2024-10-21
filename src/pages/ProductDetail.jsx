@@ -1,7 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Box, Button, Heading, Image, Text, VStack, Flex } from "@chakra-ui/react";
 import { useContext } from 'react';
+
+import { Box, Button, Heading, Image, Text, VStack, Flex } from "@chakra-ui/react";
 import { ProductsContext } from '../context/ProductsContext';
+
 import { IoArrowBackOutline } from "react-icons/io5";
 
 export const ProductDetail = () => {

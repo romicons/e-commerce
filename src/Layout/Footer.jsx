@@ -21,6 +21,7 @@ import maestrologo from '../assets/PaymentMethods/maestrologo.webp';
 import naranjalogo from '../assets/PaymentMethods/naranjalogo.webp';
 
 export const Footer = () => {
+
     const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
     const alignItems = useBreakpointValue({ base: 'center', md: 'flex-start' });
     const columnAlignItems = useBreakpointValue({ base: 'center', md: 'flex-start' });
@@ -103,6 +104,7 @@ export const Footer = () => {
                                 transformOrigin: "bottom right",
                                 transition: "transform 0.25s ease-out",
                             }}
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                             >
                                 <AiOutlineTeam aria-label='Enterprise Icon'/>
                                 Quiénes somos
@@ -132,6 +134,7 @@ export const Footer = () => {
                                 transformOrigin: "bottom right",
                                 transition: "transform 0.25s ease-out",
                             }}
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                             >
                                 <PiSealQuestionLight aria-label='Question Icon'/>
                                 Preguntas frecuentes
@@ -230,37 +233,37 @@ export const Footer = () => {
                 </Text>
                 
                 <Box display="flex" flexDirection="column" alignItems="center">
-  <HStack gap="3">
-    <IconButton
-      as="a"
-      href="https://github.com/romicons"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Github"
-      icon={<FaGithub />}
-      color="primary.600"
-      _hover={{ color: "secondary.900" }}
-    />
-    <IconButton
-      as="a"
-      href="https://www.linkedin.com/in/romina-evelin-constantinoff/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="LinkedIn"
-      icon={<FaLinkedinIn />}
-      color="primary.600"
-      _hover={{ color: "secondary.900" }}
-    />
-    <IconButton
-      as="a"
-      href="mailto:romina.constantinoff@gmail.com"
-      aria-label="Email"
-      icon={<PiEnvelopeSimpleThin />}
-      color="primary.600"
-      _hover={{ color: "secondary.900" }}
-    />
-  </HStack>
-</Box>
+                    <HStack gap="3">
+                        <IconButton
+                        as="a"
+                        href="https://github.com/romicons"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Github"
+                        icon={<FaGithub />}
+                        color="primary.600"
+                        _hover={{ color: "secondary.900" }}
+                        />
+                        <IconButton
+                        as="a"
+                        href="https://www.linkedin.com/in/romina-evelin-constantinoff/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                        icon={<FaLinkedinIn />}
+                        color="primary.600"
+                        _hover={{ color: "secondary.900" }}
+                        />
+                        <IconButton
+                        as="a"
+                        href="mailto:romina.constantinoff@gmail.com"
+                        aria-label="Email"
+                        icon={<PiEnvelopeSimpleThin />}
+                        color="primary.600"
+                        _hover={{ color: "secondary.900" }}
+                        />
+                    </HStack>
+                </Box>
 
             </VStack>
         </>
