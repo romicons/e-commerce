@@ -18,6 +18,7 @@
     "@fontsource/zen-loop": "^5.0.20",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
+    "firebase": "^10.13.1",
     "framer-motion": "^11.3.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

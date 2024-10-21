@@ -12,6 +12,7 @@ export const AboutUs = () => {
             </Heading>
             <Stack
                 direction={['column', 'row']} gap={5}
+                align="center"
             >
                 <Box w={['100%', '50%']}>
                     <Image
@@ -23,10 +24,10 @@ export const AboutUs = () => {
                     />
                 </Box>
                 <Box w={['100%', '50%']} paddingInline={5}>
-                    <Heading as='h3' fontSize='3xl' textAlign={['center', 'left']}>
+                    <Heading as='h3' fontSize='3xl' textAlign={['center', 'right']}>
                         Nuestra misión
                     </Heading>
-                    <Text paddingBlock={5}>
+                    <Text paddingBlock={5} fontSize='1.2rem'>
                         Buscamos contribuir en la creación de un mundo mejor. Nuestro objetivo es ayudarte a amar y proteger a tus mascotas.
                         Creamos equipos de trabajo solidarios, proactivos y capacitados.
                         Invertimos e innovamos para mejorar nuestro servicio y acercarnos cada día más.
@@ -44,10 +45,10 @@ export const AboutUs = () => {
                 align="center"
             >
                 <Box w={['100%', '50%']} paddingInline={5}>
-                    <Heading as='h3' fontSize='3xl' textAlign={['center', 'right']} paddingBlock={5}>
+                    <Heading as='h3' fontSize='3xl' textAlign={['center', 'left']} paddingBlock={5}>
                         Nuestros valores
                     </Heading>
-                    <Text>
+                    <Text fontSize='1.2rem'>
                         En Pets Go creemos que para cumplir con nuestra misión, necesitamos tener un estilo propio de realizar negocios y eso se refleja en nuestros Valores Corporativos.
                         Con servicio, cumplimiento, agilidad, calidez, compromiso e innovación.
                     </Text>

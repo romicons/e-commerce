@@ -17,7 +17,7 @@ export const Categories = () => {
                 alignItems='center' 
                 paddingBlock={4}
             >
-                <Link to='#'>
+                <Link to={`/products/accesories`}   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <Box w='250px' boxShadow="md" display='flex' flexDirection='column' alignItems='center' justifyContent='center' gap={4} borderRadius='10px' paddingBlock={8} _hover={{ color:'secondary.900' }}>
                             <GiDogHouse fontSize='60px' />
                             <Heading as='h3' fontSize='2xl'>
@@ -25,7 +25,7 @@ export const Categories = () => {
                             </Heading>
                     </Box>
                 </Link>
-                <Link to='#'>
+                <Link to={`/products/food`}   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <Box w='250px' boxShadow="md" display='flex' flexDirection='column' alignItems='center' justifyContent='center' gap={4} borderRadius='10px' paddingBlock={8} _hover={{ color:'secondary.900' }}>
                             <GiDogBowl fontSize='60px' />
                             <Heading as='h3' fontSize='2xl'>
@@ -33,7 +33,7 @@ export const Categories = () => {
                             </Heading>
                     </Box>
                 </Link>
-                <Link to='#'>
+                <Link to={`/products/hygiene`}   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <Box w='250px' boxShadow="md" display='flex' flexDirection='column' alignItems='center' justifyContent='center' gap={4} borderRadius='10px' paddingBlock={8}  _hover={{ color:'secondary.900' }}>
                         <GiSoap fontSize='60px' />
                         <Heading as='h3' fontSize='2xl'>
@@ -41,7 +41,7 @@ export const Categories = () => {
                         </Heading>
                     </Box>
                 </Link>
-                <Link to='#'>
+                <Link to={`/products/snacksandtoys`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <Box w='250px' boxShadow="md" display='flex' flexDirection='column' alignItems='center' justifyContent='center' gap={4} borderRadius='10px' paddingBlock={8} _hover={{ color:'secondary.900' }}>
                         <FaBone fontSize='60px' />
                         <Heading as='h3' fontSize='2xl'>
@@ -49,7 +49,7 @@ export const Categories = () => {
                         </Heading>
                     </Box>
                 </Link>
-                <Link to='#'>
+                <Link to={`/products/health`}   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <Box w='250px' boxShadow="md" display='flex' flexDirection='column' alignItems='center' justifyContent='center' gap={4} borderRadius='10px' paddingBlock={8} _hover={{ color:'secondary.900' }}>
                         <GiHeartPlus fontSize='60px'/>
                         <Heading as='h3' fontSize='2xl' _hover={{ color: 'secondary.900'}}>
