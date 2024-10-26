@@ -13,9 +13,9 @@ export const Products = () => {
         return (
             <Flex
             width="100%"
-            height="100vh" // Ocupa toda la altura de la ventana
-            alignItems="center" // Centra verticalmente
-            justifyContent="center" // Centra horizontalmente
+            height="100vh" 
+            alignItems="center" 
+            justifyContent="center" 
             >
                 <Spinner size='lg' color="primary.600" />
             </Flex>

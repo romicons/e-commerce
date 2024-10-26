@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
-import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex, Heading, IconButton, Image, Input, InputGroup, InputRightElement, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
+import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex, Heading, IconButton, Image, Input, InputGroup, InputRightElement, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
 
 import { ShoppingCart } from '../components/ShoppingCart';
+import { PasswordInput } from '../components/PasswordInput';
 
 import { TbLogin2 } from "react-icons/tb";
 import { BiSolidHomeHeart } from "react-icons/bi";
@@ -14,11 +15,14 @@ import { RiMoonClearLine, RiSunLine } from "react-icons/ri";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import logo from '../assets/img/e-commerce-logo.png';
 
+
 export const Navbar = ({ onToggleColorMode, colorMode }) => {
   const { isOpen: isNavOpen, onOpen: onNavOpen, onClose: onNavClose } = useDisclosure();
   const { isOpen: isCartOpen, onOpen: onCartOpen, onClose: onCartClose } = useDisclosure();
+  const { isOpen: isLoginOpen, onOpen: onLoginOpen, onClose: onLoginClose } = useDisclosure();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const itemCount = [];
+  
 
   return (
     <Stack position='sticky' top='0' gap={0} zIndex={99}>
@@ -135,26 +139,44 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
         </Stack>
 
         <Stack direction="row">
-          <Button display="flex" variant='custom' align="center" gap={1} fontSize={20} p={2}>
-            {isLoggedIn ? (
-              <Avatar size="sm" name="Usuario" src="ruta/al/avatar.png" />
-            ) : (
-              <>
-                <TbLogin2 aria-label='Login Icon'/>
-                <Box display={['none', 'none', 'block']}>Iniciar sesión</Box>
-              </>
-            )}
-          </Button>
-          <IconButton
-            aria-label={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}
-            icon={colorMode === 'light' ? <RiMoonClearLine /> : <RiSunLine />}
-            onClick={onToggleColorMode}
-            color="primary.600"
-            borderRadius="50%"
-            _hover={{ color: 'secondary.900' }}
-          />
+          <Button display="flex" variant='custom' align="center" gap={1} fontSize={20} p={2} onClick={onLoginOpen}>
+              {isLoggedIn ? (
+                <Avatar size="sm" name="Usuario" src="ruta/al/avatar.png" />
+              ) : (
+                <>
+                  <TbLogin2 aria-label='Login Icon'/>
+                  <Box display={['none', 'none', 'block']}>Iniciar sesión</Box>
+                </>
+              )}
+            </Button>
+            <IconButton
+              aria-label={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}
+              icon={colorMode === 'light' ? <RiMoonClearLine /> : <RiSunLine />}
+              onClick={onToggleColorMode}
+              color="primary.600"
+              borderRadius="50%"
+              _hover={{ color: 'secondary.900' }}
+            />
         </Stack>
       </Flex>
+
+      <Modal isOpen={isLoginOpen} onClose={onLoginClose}>
+        <ModalOverlay />
+        <ModalContent display='flex' alignItems='center' gap={4} borderRadius='15px' >
+          <ModalHeader textAlign='center' fontSize='1.5rem'>Inicia sesión</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody w='90%'>
+            <Stack spacing={4}>
+              <Input placeholder="Correo electrónico" type="email"  _placeholder={{ color: '#000000' }}  bg={useColorModeValue("white", "secondary.100")}/>
+              <PasswordInput />
+            </Stack>
+          </ModalBody>
+          <Button variant='custom' onClick={onLoginClose} w='40%'>Ingresar</Button>
+          <ModalFooter  fontWeight='bold' width='100%' borderRadius='0 0 15px 15px'>
+            ¿No tienes una cuenta aún? Regístrate aquí.
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
 
       <Flex 
         bg='primary.500' 
