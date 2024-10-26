@@ -16,6 +16,7 @@ export const PasswordInput = () => {
           placeholder='Ingresa tu contraseña'
           _placeholder={{ color: '#000000' }}
           bg={inputBgColor} 
+          color='#000000'
         />
         <InputRightElement width='4.5rem'>
           <Button 

@@ -167,13 +167,41 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
           <ModalCloseButton />
           <ModalBody w='90%'>
             <Stack spacing={4}>
-              <Input placeholder="Correo electrónico" type="email"  _placeholder={{ color: '#000000' }}  bg={useColorModeValue("white", "secondary.100")}/>
+              <Input placeholder="Correo electrónico" type="email"  _placeholder={{ color: '#000000' }}  bg={useColorModeValue("white", "secondary.100")} color='#000000'/>
               <PasswordInput />
             </Stack>
           </ModalBody>
           <Button variant='custom' onClick={onLoginClose} w='40%'>Ingresar</Button>
-          <ModalFooter  fontWeight='bold' width='100%' borderRadius='0 0 15px 15px'>
-            ¿No tienes una cuenta aún? Regístrate aquí.
+          <ModalFooter  fontWeight='bold' gap={2} width='100%' borderRadius='0 0 15px 15px'>
+          ¿No tienes una cuenta aún? 
+            <Link to="/login">
+                  <ChakraLink 
+                    as={Text} 
+                    display="flex" 
+                    alignItems="center"
+                    justifyContent='center'
+                    margin='0 auto'
+                    gap="5px" 
+                    color={useColorModeValue("primary.600", "primary.200")} 
+                    position="relative"
+                    _hover={{ color: 'secondary.900', _after: { transform: 'scaleX(1)', transformOrigin: 'bottom left' } }}
+                    _after={{
+                      content: "''",
+                      position: "absolute",
+                      width: "100%",
+                      transform: "scaleX(0)",
+                      height: "2px",
+                      bottom: 0,
+                      left: 0,
+                      backgroundColor: "secondary.900",
+                      transformOrigin: "bottom right",
+                      transition: "transform 0.25s ease-out",
+                    }}
+                    onClick={onLoginClose}
+                  >
+                    Regístrate aquí.
+                  </ChakraLink>
+                </Link>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -18,7 +18,7 @@ export const BrandShowcase = () => {
     return(
         <VStack p={4}>
             <Heading as='h2' textAlign='center'>
-                LAS MARCAS QUE NOS ACOMPAÑAN
+                Marcas que nos acompañan
             </Heading>
             <SimpleGrid columns={4} spacing='25px' alignItems='center'>
                         <Image

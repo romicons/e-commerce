@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Button, Heading, Image, Text, useColorModeValue, VStack } from "@chakra-ui/react";
 
 import { IoArrowForwardOutline } from "react-icons/io5";
 
 export const Product = ({ product }) => {
     const navigate = useNavigate();
+
+    const inputBgColor = useColorModeValue('secondary.100', 'rgba(255, 255, 255, 0.08)');
 
     const handleDetailsClick = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -15,7 +17,7 @@ export const Product = ({ product }) => {
     };
 
     return (
-        <VStack padding={4} gap={2} boxShadow="md" w='300px' justifyContent='center' alignItems='center' borderRadius='lg'>
+        <VStack padding={4} gap={2} boxShadow="md" w='300px' justifyContent='center' alignItems='center' borderRadius='lg' bg={inputBgColor}>
             <Image
                 boxSize='180px'
                 objectFit='contain'

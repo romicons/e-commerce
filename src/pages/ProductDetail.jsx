@@ -1,12 +1,15 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 
-import { Box, Button, Heading, Image, Text, VStack, Flex } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text, useColorModeValue, VStack } from "@chakra-ui/react";
 import { ProductsContext } from '../context/ProductsContext';
 
 import { IoArrowBackOutline } from "react-icons/io5";
 
 export const ProductDetail = () => {
+
+    const inputBgColor = useColorModeValue('secondary.100', 'rgba(255, 255, 255, 0.08)');
+
     const { category, id } = useParams();
     const navigate = useNavigate();
     const { productsArray } = useContext(ProductsContext);
@@ -30,7 +33,7 @@ export const ProductDetail = () => {
                     Regresar
                 </Button>
             </Flex>
-            <Box padding={4} gap={2} boxShadow="md" w={{ base: '90%', md: '80%' }} borderRadius='lg'>
+            <Box padding={4} gap={2} boxShadow="md" w={{ base: '90%', md: '80%' }} borderRadius='lg' bg={inputBgColor}>
                 <Heading as="h2" fontSize='1.5rem' textAlign="center" mb={4}>
                     {product.name}
                 </Heading>

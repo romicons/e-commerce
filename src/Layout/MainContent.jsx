@@ -15,7 +15,7 @@ export const MainContent = () => {
   return (
     <VStack
       w="100%" 
-      minH='100vh'
+      minH='100dvh'
     >
       <Routes>
         <Route path="/" element={<Home />} />
