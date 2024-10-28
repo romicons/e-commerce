@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex, Heading, IconButton, Image, Input, InputGroup, InputRightElement, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
+import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex,  Heading, IconButton, Image, Input, InputGroup, InputRightElement, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
 
 import { ShoppingCart } from '../components/ShoppingCart';
-import { PasswordInput } from '../components/PasswordInput';
 
 import { TbLogin2 } from "react-icons/tb";
 import { BiSolidHomeHeart } from "react-icons/bi";
@@ -22,7 +21,8 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
   const { isOpen: isLoginOpen, onOpen: onLoginOpen, onClose: onLoginClose } = useDisclosure();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const itemCount = [];
-  
+
+  const navigate = useNavigate();
 
   return (
     <Stack position='sticky' top='0' gap={0} zIndex={99}>
@@ -139,7 +139,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
         </Stack>
 
         <Stack direction="row">
-          <Button display="flex" variant='custom' align="center" gap={1} fontSize={20} p={2} onClick={onLoginOpen}>
+          <Button display="flex" variant='custom' align="center" gap={1} fontSize={20} p={2}  onClick={() => navigate('/login')}>
               {isLoggedIn ? (
                 <Avatar size="sm" name="Usuario" src="ruta/al/avatar.png" />
               ) : (
@@ -159,52 +159,6 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
             />
         </Stack>
       </Flex>
-
-      <Modal isOpen={isLoginOpen} onClose={onLoginClose}>
-        <ModalOverlay />
-        <ModalContent display='flex' alignItems='center' gap={4} borderRadius='15px' >
-          <ModalHeader textAlign='center' fontSize='1.5rem'>Inicia sesión</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody w='90%'>
-            <Stack spacing={4}>
-              <Input placeholder="Correo electrónico" type="email"  _placeholder={{ color: '#000000' }}  bg={useColorModeValue("white", "secondary.100")} color='#000000'/>
-              <PasswordInput />
-            </Stack>
-          </ModalBody>
-          <Button variant='custom' onClick={onLoginClose} w='40%'>Ingresar</Button>
-          <ModalFooter  fontWeight='bold' gap={2} width='100%' borderRadius='0 0 15px 15px'>
-          ¿No tienes una cuenta aún? 
-            <Link to="/login">
-                  <ChakraLink 
-                    as={Text} 
-                    display="flex" 
-                    alignItems="center"
-                    justifyContent='center'
-                    margin='0 auto'
-                    gap="5px" 
-                    color={useColorModeValue("primary.600", "primary.200")} 
-                    position="relative"
-                    _hover={{ color: 'secondary.900', _after: { transform: 'scaleX(1)', transformOrigin: 'bottom left' } }}
-                    _after={{
-                      content: "''",
-                      position: "absolute",
-                      width: "100%",
-                      transform: "scaleX(0)",
-                      height: "2px",
-                      bottom: 0,
-                      left: 0,
-                      backgroundColor: "secondary.900",
-                      transformOrigin: "bottom right",
-                      transition: "transform 0.25s ease-out",
-                    }}
-                    onClick={onLoginClose}
-                  >
-                    Regístrate aquí.
-                  </ChakraLink>
-                </Link>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
 
       <Flex 
         bg='primary.500' 

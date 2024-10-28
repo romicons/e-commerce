@@ -1,6 +1,6 @@
 import { Box, Heading, HStack, IconButton, Image, Link as ChakraLink, SimpleGrid, Text, VStack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { AiOutlineTeam } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
@@ -21,6 +21,8 @@ import maestrologo from '../assets/PaymentMethods/maestrologo.webp';
 import naranjalogo from '../assets/PaymentMethods/naranjalogo.webp';
 
 export const Footer = () => {
+
+    const navigate = useNavigate();
 
     const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
     const alignItems = useBreakpointValue({ base: 'center', md: 'flex-start' });

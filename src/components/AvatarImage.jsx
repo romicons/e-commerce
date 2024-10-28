@@ -3,7 +3,6 @@ import { Image, Box } from "@chakra-ui/react";
 export const AvatarImage = ({ src, alt, isSelected, onClick }) => {
     return (
         <Box
-            as="button"
             onClick={onClick}
             display='flex'
             justifyContent='center'
@@ -14,6 +13,7 @@ export const AvatarImage = ({ src, alt, isSelected, onClick }) => {
             transition="outline-color 0.2s"
             _hover={{ outlineColor: 'primary.600' }}
             p={1}
+            cursor="pointer"
         >
             <Image 
                 src={src} 
