@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+
+import { getAuth, signOut } from "firebase/auth";
+
 import { Link, useNavigate } from "react-router-dom";
+
+import { AuthContext } from '../context/AuthContext';
 
 import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex,  Heading, IconButton, Image, Input, InputGroup, InputRightElement, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
 
 import { ShoppingCart } from '../components/ShoppingCart';
 
-import { TbLogin2 } from "react-icons/tb";
+import { TbLogin2, TbLogout } from "react-icons/tb";
 import { BiSolidHomeHeart } from "react-icons/bi";
 import { FiShoppingBag, FiTag } from "react-icons/fi";
 import { BsSearchHeart, BsList } from "react-icons/bs";
@@ -18,9 +23,19 @@ import logo from '../assets/img/e-commerce-logo.png';
 export const Navbar = ({ onToggleColorMode, colorMode }) => {
   const { isOpen: isNavOpen, onOpen: onNavOpen, onClose: onNavClose } = useDisclosure();
   const { isOpen: isCartOpen, onOpen: onCartOpen, onClose: onCartClose } = useDisclosure();
-  const { isOpen: isLoginOpen, onOpen: onLoginOpen, onClose: onLoginClose } = useDisclosure();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const {user} = useContext(AuthContext);
+
   const itemCount = [];
+
+  const handleLogOut = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      navigate('/login');
+    }).catch((error) => {
+      console.log(error)
+    });  
+  }
 
   const navigate = useNavigate();
 
@@ -139,16 +154,25 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
         </Stack>
 
         <Stack direction="row">
-          <Button display="flex" variant='custom' align="center" gap={1} fontSize={20} p={2}  onClick={() => navigate('/login')}>
-              {isLoggedIn ? (
-                <Avatar size="sm" name="Usuario" src="ruta/al/avatar.png" />
-              ) : (
-                <>
-                  <TbLogin2 aria-label='Login Icon'/>
-                  <Box display={['none', 'none', 'block']}>Iniciar sesión</Box>
-                </>
-              )}
-            </Button>
+          {user ? (
+              <Flex align="center" gap={4} w='100%'>
+                <Box display='flex' flexDirection='row' gap={2}>
+                  <Avatar size="sm" name={user.name} src={user.avatar} />
+                  <Text color={useColorModeValue("primary.600", "primary.200")} 
+                    fontSize={20} 
+                    fontWeight='bold'>
+                    {user.name}
+                    </Text>
+                </Box>
+                <Button w='100%'  variant="custom" onClick={handleLogOut} leftIcon={<TbLogout />} fontSize="20px">
+                  <Box display={['none', 'none', 'block']}>Cerrar sesión</Box>
+                </Button>
+              </Flex>
+            ) : (
+              <Button w='100%' variant="custom" onClick={() => navigate('/login')} leftIcon={<TbLogin2 />} fontSize="20px">
+                <Box display={['none', 'none', 'block']}>Iniciar sesión</Box>
+              </Button>
+            )}
             <IconButton
               aria-label={`Switch to ${colorMode === 'light' ? 'dark' : 'light'} mode`}
               icon={colorMode === 'light' ? <RiMoonClearLine /> : <RiSunLine />}

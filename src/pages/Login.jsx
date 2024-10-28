@@ -18,7 +18,6 @@ export const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('formulario enviado')
         const auth = getAuth();
         const userEmail = e.target.email.value;
         const userPassword = e.target.password.value;
@@ -38,7 +37,7 @@ export const Login = () => {
     return (
         <VStack paddingBlock={6} w='100%'>
             <Heading as="h2">Inicia Sesión</Heading>
-            <VStack paddingTop={4} gap={4} boxShadow="md" justifyContent='center' alignItems='center' borderRadius='lg' bg={inputBgColor} w='70%'>
+            <VStack paddingTop={4} gap={4} boxShadow="md" justifyContent='center' alignItems='center' borderRadius='lg' bg={inputBgColor} w='80%'>
                 <VStack as='form' onSubmit={handleSubmit} w='100%' paddingInline={4}>
                     <FormControl gap={1} display='flex' flexDirection='column'>
                                 <FormLabel>Email</FormLabel>
