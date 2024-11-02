@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 import { getAuth, signOut } from "firebase/auth";
 
@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { AuthContext } from '../context/AuthContext';
 
-import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex,  Heading, IconButton, Image, Input, InputGroup, InputRightElement, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
+import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex,  Heading, IconButton, Image, Input, InputGroup, InputRightElement, Modal, ModalBody, ModalHeader, ModalOverlay, ModalContent, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
 
 import { ShoppingCart } from '../components/ShoppingCart';
 
@@ -23,19 +23,26 @@ import logo from '../assets/img/e-commerce-logo.png';
 export const Navbar = ({ onToggleColorMode, colorMode }) => {
   const { isOpen: isNavOpen, onOpen: onNavOpen, onClose: onNavClose } = useDisclosure();
   const { isOpen: isCartOpen, onOpen: onCartOpen, onClose: onCartClose } = useDisclosure();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   const {user} = useContext(AuthContext);
 
   const itemCount = [];
 
-  const handleLogOut = () => {
+  const handleLogout = async () => {
     const auth = getAuth();
-    signOut(auth).then(() => {
-      navigate('/login');
-    }).catch((error) => {
-      console.log(error)
-    });  
-  }
+    try {
+      await signOut(auth);
+      navigate('/');
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+    closeModal();
+  };
+
 
   const navigate = useNavigate();
 
@@ -164,7 +171,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
                     {user.name}
                     </Text>
                 </Box>
-                <Button w='100%'  variant="custom" onClick={handleLogOut} leftIcon={<TbLogout />} fontSize="20px">
+                <Button w='100%'  variant="custom" onClick={openModal} leftIcon={<TbLogout />} fontSize="20px">
                   <Box display={['none', 'none', 'block']}>Cerrar sesión</Box>
                 </Button>
               </Flex>
@@ -183,6 +190,23 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
             />
         </Stack>
       </Flex>
+
+      <Modal isOpen={isOpen} onClose={closeModal}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Confirmar cierre de sesión</ModalHeader>
+          <ModalBody fontSize='1.2rem' textAlign='center'>¿Estás seguro de que deseas cerrar sesión?</ModalBody>
+          <Flex padding={4} justifyContent='center'>
+            <Button mr={3} onClick={handleLogout}>
+              Confirmar
+            </Button>
+            <Button variant="custom" onClick={closeModal}>
+              Cancelar
+            </Button>
+          </Flex>
+
+        </ModalContent>
+      </Modal>
 
       <Flex 
         bg='primary.500' 
@@ -374,7 +398,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
                   <Box key={item.id}>ACA VAN TUS PRODUCTOS</Box>
                 ))
               ) : (
-                <Text fontSize="xl" textAlign="center">¡Tu carrito esta vacío! Añade algunos productos para comenzar.</Text>
+                <Text fontSize="xl" textAlign="center">Inicia sesión para comenzar a comprar.</Text>
               )}
             </Stack>
           </DrawerBody>

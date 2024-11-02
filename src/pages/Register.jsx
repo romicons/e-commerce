@@ -1,62 +1,85 @@
 import { useState } from "react";
-
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-
 import { useNavigate } from "react-router-dom";
-
-import { Button, FormControl, FormLabel, Heading, Input, useColorModeValue, VStack, RadioGroup, Grid, GridItem } from "@chakra-ui/react";
+import { Button, FormControl, FormLabel, Grid, GridItem, Heading, Input, RadioGroup, Text, useColorModeValue, VStack, } from "@chakra-ui/react";
 import { PasswordInput } from "../components/PasswordInput";
 import { AvatarImage } from "../components/AvatarImage";
 
-
 export const Register = () => {
     const [avatar, setAvatar] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
     const inputBgColor = useColorModeValue('secondary.100', 'rgba(255, 255, 255, 0.08)');
-
     const navigate = useNavigate();
+
+    const validatePassword = (password) => {
+        const minLength = 8;
+        const maxLength = 20;
+        const hasUppercase = /[A-Z]/.test(password);
+        const hasLowercase = /[a-z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+        if (password.length < minLength || password.length > maxLength) {
+            return `La contraseña debe tener entre ${minLength} y ${maxLength} caracteres.`;
+        }
+        if (!hasUppercase) return 'Debe contener al menos una letra mayúscula.';
+        if (!hasLowercase) return 'Debe contener al menos una letra minúscula.';
+        if (!hasNumber) return 'Debe contener al menos un número.';
+        if (!hasSpecialChar) return 'Debe contener al menos un carácter especial.';
+        return '';
+    };
+
+    const handlePasswordChange = (e) => {
+        const newPassword = e.target.value;
+        setPassword(newPassword);
+        setPasswordError(validatePassword(newPassword));
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const auth = getAuth();
         const userEmail = e.target.email.value;
-        const userPassword = e.target.password.value;
+        const userPassword = password;
         const userName = e.target.name.value;
         const userLastname = e.target.lastname.value;
-        const userDateBirth =  e.target.datebirth.value
+        const userDateBirth = e.target.datebirth.value;
         const userAvatar = avatar;
+
+        if (passwordError) {
+            alert("Corrige los errores de contraseña antes de continuar.");
+            return;
+        }
 
         const registerNewUser = async (newUser) => {
             try {
                 await setDoc(doc(db, "users", newUser.id), newUser);
+            } catch (err) {
+                console.log(err);
             }
-            catch(err) {
-                console.log(err)
-            }
-        }
+        };
 
         createUserWithEmailAndPassword(auth, userEmail, userPassword)
-        .then((userCredential) => {
-
-            const user = {
-                name: userName,
-                lastname: userLastname,
-                datebirth: userDateBirth,
-                avatar: userAvatar,
-                email: userEmail,
-                orders: [],
-                cart: [],
-                id: userCredential.user.uid
-            }
-            registerNewUser(user);
-            navigate("/");
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
-    }
+            .then((userCredential) => {
+                const user = {
+                    name: userName,
+                    lastname: userLastname,
+                    datebirth: userDateBirth,
+                    avatar: userAvatar,
+                    email: userEmail,
+                    orders: [],
+                    cart: [],
+                    id: userCredential.user.uid,
+                };
+                registerNewUser(user);
+                navigate("/");
+            })
+            .catch((error) => {
+                console.error(error.message);
+            });
+    };
 
     return (
         <VStack paddingBlock={6} w='100%'>
@@ -111,7 +134,8 @@ export const Register = () => {
                         </GridItem>
                     </Grid>
                     <FormLabel>Contraseña</FormLabel>
-                    <PasswordInput />
+                    <PasswordInput value={password} onChange={handlePasswordChange} />
+                    {passwordError && <Text color="red.500">{passwordError}</Text>}
                     <FormLabel paddingBlock={2}>Selecciona tu avatar</FormLabel>
                     <RadioGroup onChange={setAvatar} value={avatar} name="avatar">
                         <Grid templateColumns="repeat(4, 1fr)" gap={4} padding={4}>

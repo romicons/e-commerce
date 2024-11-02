@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Input, InputGroup, InputRightElement, useColorModeValue } from "@chakra-ui/react";
 import { PiEye, PiEyeClosed } from "react-icons/pi";
 
-export const PasswordInput = () => {
+export const PasswordInput = ({ value, onChange }) => {
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
 
@@ -18,6 +18,8 @@ export const PasswordInput = () => {
           bg={inputBgColor} 
           color='#000000'
           name="password"
+          value={value}
+          onChange={onChange}
         />
         <InputRightElement width='4.5rem'>
           <Button 

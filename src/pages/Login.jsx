@@ -28,7 +28,6 @@ export const Login = () => {
             navigate("/");
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
             setLoginError(errorMessage)
         });
@@ -92,7 +91,7 @@ export const Login = () => {
             {loginError && (
                 <Alert status='error' display='flex' justifyContent='center' fontSize={18} fontWeight='bold'>
                     <AlertIcon />
-                    {loginError}
+                    Parece que la contraseña o el usuario no son válidos, por favor intenta nuevamente.
                 </Alert>
             )}
         </VStack>
