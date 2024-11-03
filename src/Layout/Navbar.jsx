@@ -30,7 +30,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
 
   const bgColor = useColorModeValue('gray.100', 'rgba(255, 255, 255, 0.08)');
 
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart } = useAuth();
 
   const { logout } = useContext(AuthContext);
@@ -44,7 +44,6 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
           console.error('Error al cerrar sesión:', error);
       }
   };
-
 
   const navigate = useNavigate();
 

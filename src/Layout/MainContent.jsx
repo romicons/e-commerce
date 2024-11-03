@@ -1,9 +1,10 @@
 import { useContext } from "react";
-
 import { AuthContext } from "../context/AuthContext"; 
 
 import { Navigate, Routes, Route } from "react-router";
+
 import { VStack } from "@chakra-ui/react";
+
 import { Home } from "../pages/Home";
 import { Categories } from "../pages/Categories";
 import { Checkout } from "../pages/Checkout";
@@ -35,7 +36,7 @@ export const MainContent = () => {
                 <Route path="/products/:category/:id" element={<ProductDetail />} />
                 <Route path="/products/:category" element={<ProductList />} />
                 <Route path="/search" element={<Search />} />
-                <Route path="/register" element={<Register />} />
+                <Route path="/register" element={isAuthenticated ? <Home /> : <Register />} />
                 <Route path="/user" element={isAuthenticated ? <UserHistory /> : <Login />} />
                 <Route path="/checkout" element={isAuthenticated ? <Checkout /> : <Login />} />
                 <Route path="/aboutus" element={<AboutUs />} />

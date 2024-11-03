@@ -4,7 +4,7 @@ import { ProductsContext } from '../context/ProductsContext';
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { Box, Button, Flex, Heading, HStack, Image, Input, Text, VStack, useColorModeValue, useNumberInput, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, HStack, Image, Input, Text, VStack, useColorModeValue, useNumberInput } from "@chakra-ui/react";
 
 import { IoArrowBackOutline } from "react-icons/io5";
 
@@ -13,7 +13,6 @@ export const ProductDetail = () => {
     const navigate = useNavigate();
     const { productsArray } = useContext(ProductsContext);
     const { user, addToCart } = useContext(AuthContext);
-    const toast = useToast();
 
     const product = productsArray.find((product) => product.id === id && product.category === category);
 
@@ -37,14 +36,6 @@ export const ProductDetail = () => {
             navigate('/login');
         } else if (product && product.stock >= quantity) {
             addToCart({ ...product, quantity });
-            toast({
-                title: "Producto añadido al carrito.",
-                description: `${product.name} se ha añadido con éxito.`,
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-                position: "bottom",
-            });
         }
     };
 

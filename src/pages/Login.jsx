@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 import { Link } from "react-router-dom";
 
-import { Alert, AlertIcon, Box, Button, Link as ChakraLink, FormControl, FormLabel, Heading, Input, Text, useColorModeValue, VStack,} from "@chakra-ui/react";
+import { Box, Button, Link as ChakraLink, FormControl, FormLabel, Heading, Input, Text, useColorModeValue, VStack,} from "@chakra-ui/react";
 
 import { PasswordInput } from "../components/PasswordInput";
-
 
 export const Login = () => {
 
@@ -14,7 +13,6 @@ export const Login = () => {
     const bgColor = useColorModeValue('gray.100', 'rgba(255, 255, 255, 0.08)');
 
     const { login } = useContext(AuthContext);
-    const [loginError, setLoginError] = useState();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -84,13 +82,6 @@ export const Login = () => {
                         </Link>
                     </Box>
             </VStack>
-
-            {loginError && (
-                <Alert status='error' display='flex' justifyContent='center' fontSize={18} fontWeight='bold'>
-                    <AlertIcon />
-                    Parece que la contraseña o el usuario no son válidos, por favor intenta nuevamente.
-                </Alert>
-            )}
         </VStack>
     );
 };

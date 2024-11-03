@@ -6,7 +6,7 @@ import { db } from "../../firebase";
 
 import { useNavigate } from "react-router-dom";
 
-import { Button, FormControl, FormLabel, Grid, GridItem, Heading, Input, RadioGroup, Text, useColorModeValue, VStack, } from "@chakra-ui/react";
+import { Button, FormControl, FormLabel, Grid, GridItem, Heading, Input, RadioGroup, Text, useColorModeValue, useToast, VStack, } from "@chakra-ui/react";
 
 import { PasswordInput } from "../components/PasswordInput";
 import { AvatarImage } from "../components/AvatarImage";
@@ -17,6 +17,7 @@ export const Register = () => {
     const [passwordError, setPasswordError] = useState('');
     const inputBgColor = useColorModeValue('secondary.100', 'rgba(255, 255, 255, 0.08)');
     const navigate = useNavigate();
+    const toast = useToast();
 
     const validatePassword = (password) => {
         const minLength = 8;
@@ -53,7 +54,13 @@ export const Register = () => {
         const userAvatar = avatar;
 
         if (passwordError) {
-            alert("Corrige los errores de contraseña antes de continuar.");
+            toast({
+                title: "Error de contraseña",
+                description: "Corrige los errores de contraseña antes de continuar.",
+                status: "warning",
+                duration: 3000,
+                isClosable: true,
+            });
             return;
         }
 
@@ -79,6 +86,13 @@ export const Register = () => {
                 };
                 registerNewUser(user);
                 navigate("/");
+                toast({
+                    title:`¡Bienvenide ${userName}!`,
+                    description: "Estamos felices de que formes parte de la comunidad de Pets Go.",
+                    status: "success",
+                    duration: 3000,
+                    isClosable: true,
+                });
             })
             .catch((error) => {
                 console.error(error.message);
