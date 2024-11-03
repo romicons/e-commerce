@@ -3,10 +3,11 @@ import { ProductsContext } from '../context/ProductsContext';
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { Button, Flex, Heading, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
+import { Flex, Heading, SimpleGrid, Spinner, Text, VStack, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+
 import { Product } from '../components/Product';
 
-import { IoArrowBackOutline } from "react-icons/io5";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 export const ProductList = () => {
   const { category } = useParams();
@@ -14,7 +15,7 @@ export const ProductList = () => {
   const navigate = useNavigate();
 
   const categoryNames = {
-    accesories: "Accesorios",
+    accessories: "Accesorios",
     food: "Alimentos",
     hygiene: "Estética e Higiene",
     snacksandtoys: "Juguetes & Snacks",
@@ -26,17 +27,30 @@ export const ProductList = () => {
   if (isLoading) {
     return (
       <Flex
-      width="100%"
-      height="100vh"
-      alignItems="center" 
-      justifyContent="center" 
+        width="100%"
+        height="100vh"
+        alignItems="center" 
+        justifyContent="center" 
       >
-          <Spinner size='lg' color="primary.600" />
+        <Spinner size='lg' color="primary.600" />
       </Flex>
-  )}
+    );
+  }
 
   return (
     <VStack paddingBlock={6}>
+      <Breadcrumb alignSelf='start' spacing='8px' padding={2} bg='transparent' fontSize='1.5rem' fontWeight='bold' separator={<MdOutlineKeyboardArrowRight />}>
+        <BreadcrumbItem>
+          <BreadcrumbLink onClick={() => navigate("/")}>Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink onClick={() => navigate("/categories")}>Categorías</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink href="#">{categoryNames[category] || category}</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+
       <Heading textAlign='center' as="h2">Productos de {categoryNames[category] || category}</Heading>
 
       {filteredProducts.length === 0 ? (
@@ -53,19 +67,6 @@ export const ProductList = () => {
           ))}
         </SimpleGrid>
       )}
-      <Button
-        gap={1}
-        variant='custom'
-        onClick={() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          setTimeout(() => {
-            navigate("/categories");
-          }, 300); 
-        }}
-      >
-        <IoArrowBackOutline />
-        Regresar
-      </Button>
     </VStack>
   );
 };

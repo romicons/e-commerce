@@ -4,9 +4,16 @@ import { ProductsContext } from '../context/ProductsContext';
 
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { Box, Button, Flex, Heading, HStack, Image, Input, Text, VStack, useColorModeValue, useNumberInput } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, HStack, Image, Input, Text, VStack, useColorModeValue, useNumberInput, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-import { IoArrowBackOutline } from "react-icons/io5";
+const categoryNames = {
+    accessories: "Accesorios",
+    food: "Comida",
+    hygiene: "Higiene",
+    health: "Salud",
+    snacksandtoys: "Juguetes & Snacks",
+};
 
 export const ProductDetail = () => {
     const { category, id } = useParams();
@@ -45,12 +52,21 @@ export const ProductDetail = () => {
 
     return (
         <VStack paddingBlock={6} spacing={4} w="100%">
-            <Flex width="100%" justifyContent="flex-start" paddingLeft={5}>
-                <Button gap={1} variant='custom' onClick={() => navigate(-1)}>
-                    <IoArrowBackOutline />
-                    Regresar
-                </Button>
-            </Flex>
+            <Breadcrumb alignSelf='start' spacing='8px' padding={2} bg='transparent' fontSize='1.5rem' fontWeight='bold' separator={<MdOutlineKeyboardArrowRight />}>
+                <BreadcrumbItem>
+                    <BreadcrumbLink onClick={() => navigate("/")}>Home</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbLink onClick={() => navigate("/categories")}>Categorías</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbLink onClick={() => navigate(`/products/${category}`)}>{categoryNames[category]}</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem isCurrentPage>
+                    <BreadcrumbLink href="#">{product.name}</BreadcrumbLink>
+                </BreadcrumbItem>
+            </Breadcrumb>
+        
             <Box bg={bgColor} padding={4} gap={2} boxShadow="md" w={{ base: '90%', md: '80%' }} borderRadius='lg'>
                 <Heading as="h2" fontSize='1.5rem' textAlign="center" mb={4}>
                     {product.name}

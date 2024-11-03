@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 
 import { useAuth, AuthContext } from '../context/AuthContext';
 
-import { Link, useNavigate } from "react-router-dom";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
 
 import { Avatar, Box, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, Flex,  Heading, HStack, IconButton, Image, Input, InputGroup, InputRightElement, Modal, ModalBody, ModalHeader, ModalOverlay, ModalContent, Spacer, Stack, Text, useDisclosure, Link as ChakraLink, useColorModeValue } from '@chakra-ui/react';
 
@@ -32,8 +32,9 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
 
   const { user } = useContext(AuthContext);
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart } = useAuth();
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
       try {
@@ -45,7 +46,16 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
       }
   };
 
-  const navigate = useNavigate();
+  const handleFilterChange = (filter) => {
+    setSearchParams({ filter });
+    navigate('/search?filter=' + filter);
+    navigate('/search?query=' + query);
+  };
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value;
+    setSearchParams({ query });
+  };
 
   return (
     <Stack position='sticky' top='0' gap={0} zIndex={99}>
@@ -247,6 +257,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
           _hover={{
             color: 'secondary.900'
           }}
+          onClick={() => handleFilterChange('cat')}
         >
           <PiCat aria-label='Cat Filter Icon'/>
         </Button>
@@ -259,6 +270,7 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
           _hover={{
             color: 'secondary.900'
           }}
+          onClick={() => handleFilterChange('dog')}
         >
           <PiDog aria-label='Dog Filter Icon'/>
         </Button>
@@ -267,14 +279,20 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
             pr='4.5rem'
             type={'text'}
             placeholder='Buscá tu marca favorita...'
+            onChange={handleSearchChange}
             _placeholder={{ color: '#000000' }}
           />
           <InputRightElement width='4.5rem'>
-            <Button h='1.75rem' size='sm' variant='custom2'  bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
-              color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
-              _hover={{
-                color: 'secondary.900'
-              }} aria-label='Search Button'>
+            <Button 
+              h='1.75rem' 
+              size='sm' 
+              variant='custom2'
+              aria-label='Search Button'
+              onClick={() => {
+                const query = document.querySelector('input[placeholder="Buscá tu marca favorita..."]').value;
+                navigate('/search?query=' + query);
+              }}
+            >
               <BsSearchHeart />
             </Button>
           </InputRightElement>
