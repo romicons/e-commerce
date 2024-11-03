@@ -167,42 +167,51 @@ export const AuthProvider = ({ children }) => {
     };
 
     const increaseQuantity = async (item) => {
+        if (item.quantity >= item.stock) {
+          return;
+        }
         const updatedCart = cart.map((cartItem) =>
-            cartItem.id === item.id && cartItem.quantity < item.stock
-                ? { ...cartItem, quantity: cartItem.quantity + 1 }
-                : cartItem
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
         );
         setCart(updatedCart);
+      
         if (user) {
-            await updateDoc(doc(db, "users", user.id), { cart: updatedCart });
-            toast({
-                title: "Cantidad actualizada",
-                description: "La cantidad del producto ha sido incrementada.",
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-            });
+          await updateDoc(doc(db, "users", user.id), { cart: updatedCart });
+          toast({
+            title: "Cantidad actualizada",
+            description: "La cantidad del producto ha sido incrementada.",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
         }
     };
-
+      
     const decreaseQuantity = async (item) => {
+        if (item.quantity <= 1) {
+          return;
+        }
         const updatedCart = cart.map((cartItem) =>
-            cartItem.id === item.id && cartItem.quantity > 1
-                ? { ...cartItem, quantity: cartItem.quantity - 1 }
-                : cartItem
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
         );
         setCart(updatedCart);
+      
         if (user) {
-            await updateDoc(doc(db, "users", user.id), { cart: updatedCart });
-            toast({
-                title: "Cantidad actualizada",
-                description: "La cantidad del producto ha sido decrementada.",
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-            });
+          await updateDoc(doc(db, "users", user.id), { cart: updatedCart });
+          toast({
+            title: "Cantidad actualizada",
+            description: "La cantidad del producto ha sido decrementada.",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
         }
     };
+      
 
     const removeFromCart = async (itemId) => {
         const updatedCart = cart.filter((item) => item.id !== itemId);

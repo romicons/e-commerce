@@ -5,9 +5,10 @@ import { Button, Heading, Image, Text, useColorModeValue, VStack } from "@chakra
 import { IoArrowForwardOutline } from "react-icons/io5";
 
 export const Product = ({ product }) => {
-    const navigate = useNavigate();
 
     const inputBgColor = useColorModeValue('secondary.100', 'rgba(255, 255, 255, 0.08)');
+
+    const navigate = useNavigate();
 
     const handleDetailsClick = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
