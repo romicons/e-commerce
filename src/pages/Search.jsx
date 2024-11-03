@@ -11,8 +11,8 @@ export const Search = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const filter = searchParams.get('filter'); // 'gatos' o 'perros'
-    const query = searchParams.get('query'); // término de búsqueda
+    const filter = searchParams.get('filter'); 
+    const query = searchParams.get('query'); 
 
     const results = products.filter((product) => {
       const matchesCategory = filter ? product.category === filter : true;

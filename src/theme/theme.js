@@ -37,6 +37,7 @@ export const theme = extendTheme({
     heading: 'Glass Antiqua, system-ui',
     body: 'Zen Loop, system-ui',
     button: 'Zen Loop, system-ui',
+    custom: 'Glass Antiqua, system-ui'
   },
   components: {
     Button: {

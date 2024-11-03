@@ -1,4 +1,5 @@
 import { Box, Heading, VStack, Image, Text, Stack, SimpleGrid } from "@chakra-ui/react";
+
 import { FaBolt, FaCheckCircle, FaHandsHelping, FaLightbulb, FaRibbon, FaSun } from "react-icons/fa";
 
 import catImg from '../assets/img/cat1.jpg';
