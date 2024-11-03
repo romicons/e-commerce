@@ -9,7 +9,7 @@ export const AboutUs = () => {
     return (
         <VStack paddingBlock={5} gap={0}>
             <Heading as="h2" paddingBottom={4}>
-                QUIÉNES SOMOS
+                Quénes somos
             </Heading>
             <Stack
                 direction={['column', 'row']} gap={5}

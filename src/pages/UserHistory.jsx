@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Avatar, Box, Flex, Grid, Heading, Image, Text, useColorModeValue, VStack } from "@chakra-ui/react";
 import { AuthContext } from '../context/AuthContext';
+
+import { Avatar, Box, Flex, Grid, Heading, Image, Text, useColorModeValue, VStack } from "@chakra-ui/react";
 
 export const UserHistory = () => {
     const inputBgColor = useColorModeValue('secondary.100', 'rgba(255, 255, 255, 0.08)');
-    const { user } = useContext(AuthContext);
+    const { user, orders } = useContext(AuthContext);
 
     return (
         <VStack paddingBlock={6} width='100%'>
@@ -36,10 +37,10 @@ export const UserHistory = () => {
                 </Flex>
 
                 <Flex flexDirection="column" gap={2}>
-                    <Heading as="h3" textAlign="center">Órdenes de compra</Heading>
-                    {user.orders && user.orders.length > 0 ? (
-                        user.orders.map((order, index) => (
-                            <Flex key={index} flexDirection="column" padding={4} boxShadow="md" borderRadius="lg" bg={inputBgColor} marginTop={2}>
+                    <Heading as="h3" textAlign="center">Historial de Compras</Heading>
+                    {orders && orders.length > 0 ? (
+                        [...orders].sort((a, b) => new Date(b.date) - new Date(a.date)).map((order, index) => (
+                            <Flex key={order.id} flexDirection="column" padding={4} boxShadow="md" borderRadius="lg" bg={inputBgColor} marginTop={2}>
                                 <Text fontWeight="bold" fontSize="1.2rem">Productos:</Text>
                                 <Flex gap={2} flexDirection="column">
                                     {order.products.map((product) => (
@@ -67,8 +68,9 @@ export const UserHistory = () => {
                             </Flex>
                         ))
                     ) : (
-                        <Text>Aún no has efectuado ninguna compra.</Text>
+                        <Text textAlign='center' fontSize='1.5rem'>Aún no has efectuado ninguna compra.</Text>
                     )}
+
                 </Flex>
             </Grid>
         </VStack>

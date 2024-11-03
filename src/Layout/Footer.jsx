@@ -22,8 +22,6 @@ import naranjalogo from '../assets/PaymentMethods/naranjalogo.webp';
 
 export const Footer = () => {
 
-    const navigate = useNavigate();
-
     const flexDirection = useBreakpointValue({ base: 'column', md: 'row' });
     const alignItems = useBreakpointValue({ base: 'center', md: 'flex-start' });
     const columnAlignItems = useBreakpointValue({ base: 'center', md: 'flex-start' });

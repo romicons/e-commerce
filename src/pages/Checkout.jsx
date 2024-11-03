@@ -1,37 +1,52 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { ProductsContext } from "../context/ProductsContext";
 
 import { useNavigate } from "react-router-dom";
 
-import { Box, Button, Flex, Heading, Image, Stack, Text, useColorModeValue, useToast, VStack } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Image, Stack, Text, useColorModeValue, VStack, Spinner, useToast } from '@chakra-ui/react';
 
 import { IoArrowBackOutline, IoCheckmarkDone } from "react-icons/io5";
 import { GrFormClose } from "react-icons/gr";
 
 export const Checkout = () => {
     const bgColor = useColorModeValue('gray.100', 'rgba(255, 255, 255, 0.08)');
-    const { addOrder, clearCart, removeFromCart, user } = useContext(AuthContext);
-    const navigate = useNavigate(); 
-    const cart = user.cart; 
-    const toast = useToast();
+    const toast = useToast(); 
 
-    const handleCheckout = () => {
-        if (!user || cart.length === 0) {
+    const { user, cart, removeFromCart, loading, addOrder } = useContext(AuthContext);
+    const { updateProductStock } = useContext(ProductsContext);
+    const navigate = useNavigate();
+
+    const handleCheckout = async () => {
+        if (!user) {
             navigate('/login');
-        } else {
-            addOrder(cart); 
-            clearCart(); 
-            navigate('/user')
+            return; 
+        }
+
+        if (cart.length === 0) {
             toast({
-                title: "Compra realizada.",
-                description: "Tu orden se ha completado con éxito.",
-                status: "success",
+                title: "Carrito vacío",
+                description: "No puedes finalizar la compra porque no hay productos en el carrito.",
+                status: "warning",
                 duration: 3000,
                 isClosable: true,
-                position: "bottom",
             });
+            return; 
         }
+        for (const item of cart) {
+            await updateProductStock(item.id, item.quantity); 
+        }
+        await addOrder(cart); 
+        navigate('/user');
     };
+    
+    if (loading) {
+        return (
+            <Flex align="center" justify="center" height="100vh">
+                <Spinner size="xl" />
+            </Flex>
+        );
+    }
 
     return (
         <VStack paddingBlock={6} spacing={4} w="100%">
@@ -76,7 +91,6 @@ export const Checkout = () => {
                                 <Text fontSize='1.1rem'>
                                     Unidades: {item.quantity}
                                 </Text>
-                                
                                 <Text fontSize="1.5rem" fontWeight="bold">
                                     $ {item.price * item.quantity}
                                 </Text>
