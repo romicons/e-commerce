@@ -30,32 +30,38 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
 
   const bgColor = useColorModeValue('gray.100', 'rgba(255, 255, 255, 0.08)');
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState('');
   const { user } = useContext(AuthContext);
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart } = useAuth();
-  const [searchParams, setSearchParams] = useSearchParams();
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-      try {
-          await logout();
-          navigate('/');
-          closeModal();
-      } catch (error) {
-          console.error('Error al cerrar sesión:', error);
-      }
-  };
+    const handleLogout = async () => {
+        try {
+            await logout();
+            navigate('/');
+            closeModal();
+        } catch (error) {
+            console.error('Error al cerrar sesión:', error);
+        }
+    };
 
   const handleFilterChange = (filter) => {
-    setSearchParams({ filter });
-    navigate('/search?filter=' + filter);
-    navigate('/search?query=' + query);
+    setSearchParams((prevParams) => {
+      const newParams = new URLSearchParams(prevParams);
+      newParams.set('filter', filter);
+      return newParams;
+    });
+    navigate(`/search?filter=${filter}&query=${searchParams.get('query') || ''}`);
   };
 
-  const handleSearchChange = (event) => {
-    const query = event.target.value;
-    setSearchParams({ query });
+  const handleSearchClick = () => {
+    if (query.trim()) {
+      navigate(`/search?query=${encodeURIComponent(query.trim())}`);
+    }
   };
+
 
   return (
     <Stack position='sticky' top='0' gap={0} zIndex={99}>
@@ -279,19 +285,17 @@ export const Navbar = ({ onToggleColorMode, colorMode }) => {
             pr='4.5rem'
             type={'text'}
             placeholder='Buscá tu marca favorita...'
-            onChange={handleSearchChange}
             _placeholder={{ color: '#000000' }}
+            onChange={(e) => setQuery(e.target.value)}
           />
           <InputRightElement width='4.5rem'>
             <Button 
-              h='1.75rem' 
-              size='sm' 
-              variant='custom2'
-              aria-label='Search Button'
-              onClick={() => {
-                const query = document.querySelector('input[placeholder="Buscá tu marca favorita..."]').value;
-                navigate('/search?query=' + query);
-              }}
+              h='1.75rem' size='sm' variant='custom2'  bg={colorMode === 'light' ? 'secondary.100' : 'secondary.500'}
+              color={colorMode === 'light' ? 'primary.500' : 'primary.600'}
+              _hover={{
+                color: 'secondary.900'
+              }} aria-label='Search Button'
+              onClick={handleSearchClick}
             >
               <BsSearchHeart />
             </Button>

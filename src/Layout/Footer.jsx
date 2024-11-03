@@ -1,6 +1,6 @@
 import { Box, Heading, HStack, IconButton, Image, Link as ChakraLink, SimpleGrid, Text, VStack, useBreakpointValue, useColorModeValue } from '@chakra-ui/react';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { AiOutlineTeam } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
