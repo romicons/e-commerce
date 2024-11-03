@@ -1,8 +1,11 @@
 import { useContext } from 'react';
+import { ProductsContext } from '../context/ProductsContext';
+
 import { useParams, useNavigate } from 'react-router-dom';
+
 import { Button, Flex, Heading, SimpleGrid, Spinner, Text, VStack } from "@chakra-ui/react";
 import { Product } from '../components/Product';
-import { ProductsContext } from '../context/ProductsContext';
+
 import { IoArrowBackOutline } from "react-icons/io5";
 
 export const ProductList = () => {

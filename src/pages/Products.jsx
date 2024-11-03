@@ -1,8 +1,7 @@
 import { useContext } from "react"
+import { ProductsContext } from "../context/ProductsContext"
 
 import { Flex, Heading, SimpleGrid, Spinner, VStack } from "@chakra-ui/react"
-
-import { ProductsContext } from "../context/ProductsContext"
 
 import { Product } from "../components/Product"
 

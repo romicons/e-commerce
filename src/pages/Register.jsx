@@ -1,9 +1,13 @@
 import { useState } from "react";
+
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+
 import { useNavigate } from "react-router-dom";
+
 import { Button, FormControl, FormLabel, Grid, GridItem, Heading, Input, RadioGroup, Text, useColorModeValue, VStack, } from "@chakra-ui/react";
+
 import { PasswordInput } from "../components/PasswordInput";
 import { AvatarImage } from "../components/AvatarImage";
 

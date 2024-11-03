@@ -1,37 +1,34 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Alert, AlertIcon, Box, Button, Link as ChakraLink, FormControl, FormLabel, Heading, Input, Text, useColorModeValue, VStack,} from "@chakra-ui/react";
+
 import { PasswordInput } from "../components/PasswordInput";
 
 
 export const Login = () => {
-    const [loginError, setLoginError] = useState();
 
     const inputBgColor = useColorModeValue('secondary.100', 'rgba(255, 255, 255, 0.08)');
     const bgColor = useColorModeValue('gray.100', 'rgba(255, 255, 255, 0.08)');
 
-    const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const auth = getAuth();
         const userEmail = e.target.email.value;
         const userPassword = e.target.password.value;
 
-        signInWithEmailAndPassword(auth, userEmail, userPassword)
-        .then((userCredential) => {
-            const user = userCredential.user;
+        try {
+            await login(userEmail, userPassword);
             navigate("/");
-        })
-        .catch((error) => {
+        } catch (error) {
             const errorMessage = error.message;
-            setLoginError(errorMessage)
-        });
-    }
+            setLoginError(errorMessage);
+        }
+    };
 
     return (
         <VStack paddingBlock={6} w='100%'>
