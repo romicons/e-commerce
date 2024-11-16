@@ -35,7 +35,31 @@
 
 </div>
 
-<p align="justify">¿Sos de los que piensa que las mascotas merecen lo mejor? Pets Go es mucho más que una tienda online; es un rincón especial para quienes desean consentir y cuidar a sus compañeros de vida con productos de calidad, variedad, y un toque de amor. Con una interfaz atractiva e interactiva, te ofrecemos una experiencia de usuario refinada para que encuentres todo lo que necesitas para mimar a tus amigos peludos, a tan solo un par de clics de distancia. Preparate para descubrir todo lo que tenemos para ofrecerte.</p>
+<p align="justify">
+¿Sos de los que cree que las mascotas merecen lo mejor? Pets Go es mucho más que una plantilla para una tienda online; es un espacio diseñado para aquellos emprendedores que desean brindar a sus clientes lo mejor en productos para el cuidado de sus compañeros de vida 🐾. Con una interfaz atractiva e interactiva, este diseño facilita la navegación de manera intuitiva, optimizando cada paso del proceso de compra. Descubre todo lo que Pets Go tiene para ofrecer y prepárate para brindarle a tus clientes una experiencia única.</p>
+
+<h2 align="center">🌟 Diseño atractivo y navegación intuitiva</h2>
+
+<p align="justify">
+En Pets Go, nos enfocamos en la experiencia de usuario. Nuestro diseño no solo es visualmente atractivo 🖥️, sino que también está optimizado para que los visitantes puedan navegar de manera sencilla y fluida, guiándolos paso a paso durante su proceso de compra. Pets Go facilita que tus clientes encuentren lo que necesitan rápidamente, sin complicaciones.
+
+Entre sus secciones, esta tienda online incluye:</p>
+<ul>
+  
+  🏠 Home: el punto de partida, donde tus usuarios podrán ver las noticias más destacadas, las ofertas y las marcas que trabajas.
+
+   📂 Categorías: segmentación de productos organizada, para que tus clientes encuentren lo que buscan según cada categoría.
+
+   🐾 Sección de productos: una vitrina completa de tu selección de productos, para que tus usuarios exploren y descubran.
+
+   ❓ Preguntas frecuentes (FAQ): donde podrás brindar respuestas a las dudas comunes de tus clientes, asegurando que cuenten con toda la información que necesitan.
+
+   🌟 Sobre Nosotros: una sección para que tus visitantes conozcan la misión y los valores de tu negocio.
+
+  🔍 Barra de búsqueda avanzada: permite que los usuarios filtren rápidamente por productos específicos para perros o gatos, o busquen directamente por nombre.
+
+</ul>
+<p align="justify">Pets Go tiene el objetivo de asegurar que la experiencia de tus clientes sea rápida, agradable y sin complicaciones. Queremos que encuentren lo que buscan de manera fácil, disfrutando del proceso en cada paso. ¡Esta plantilla está lista para ayudarte a convertir cada visita en una experiencia memorable!</p>
 
 <h2 align="center">🔐 Sistema de cuentas de usuario</h2>
 
@@ -46,25 +70,4 @@ Pero no te preocupes, ¡registrarse en Pets Go es rápido y sencillo! 🚀 Sólo
 <p align="justify">
 Además, tendrás acceso a tu historial de compras 📜, donde podrás ver todas tus transacciones, organizadas desde la más antigua hasta la más reciente. Esto te permitirá llevar un registro completo de tus pedidos 📦 y tener control total sobre tus compras en nuestra plataforma.</p>
 
-<h2 align="center">🌟 Diseño atractivo y navegación intuitiva</h2>
-
-<p align="justify">
-En Pets Go, nos enfocamos en ofrecer una experiencia de usuario impecable 🖥️. Nuestro diseño no solo es atractivo a la vista, sino también sumamente intuitivo, pensado para guiar al usuario de forma sencilla y ayudarlo en cada paso del proceso de compra. Navegar por Pets Go es fácil y fluido, asegurando que encuentres lo que necesitas sin complicaciones.
-
-Entre sus secciones, nuestra tienda online incluye:</p>
-
-  🏠 Home: el punto de partida, donde tu usuario podrá descubrir las noticias más frecuentes, ofertas y las marcas con las que trabajas.
-
-   📂 Categorías: para facilitar la búsqueda, hemos dividido y segmentado los productos de acuerdo a su uso.
-
-   🐾 Sección de productos: con toda tu selección disponible, para que tu usuario explore libremente.
-
-   ❓ Preguntas frecuentes (FAQ): aquí podrás responder a las dudas más comunes, de manera que tus clientes tengan toda la información que necesitan.
-
-   🌟 Sobre Nosotros: una sección para conocer la misión y los valores que inspiran a tu empresa.
-
-  🔍 Barra de búsqueda avanzada: para que tu usuario filtre rápidamente por productos específicos para perros o gatos, o busque manualmente por el nombre de un producto.
-
-
-En Pets Go, nuestra meta es hacer que la experiencia de tus clientes sea rápida, agradable y sin complicaciones. Queremos que encuentre lo que buscas de manera fácil y disfrute de todo el proceso. ¡Estamos aquí para ayudarte en cada clic!
 
