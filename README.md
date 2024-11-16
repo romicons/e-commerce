@@ -61,6 +61,12 @@ Entre sus secciones, esta tienda online incluye:</p>
 </ul>
 <p align="justify">Pets Go tiene el objetivo de asegurar que la experiencia de tus clientes sea rápida, agradable y sin complicaciones. Queremos que encuentren lo que buscan de manera fácil, disfrutando del proceso en cada paso. ¡Esta plantilla está lista para ayudarte a convertir cada visita en una experiencia memorable!</p>
 
+<h2 align="center">📦 Gestión de Inventario en Tiempo Real</h2>
+
+<p align="justify">En Pets Go, nos aseguramos de que tu tienda esté siempre actualizada y optimizada. Gracias al uso de <img alt="Static Badge" src="https://img.shields.io/badge/Firebase%20Storage-%23ffac42"> 📦 y <img alt="Static Badge" src="https://img.shields.io/badge/Firebase%20Database-%23ffac42"> 🗄️, podrás contar con una base de datos completamente personalizable, donde podrás cargar y organizar tus productos en las categorías que desees 🏷️.
+
+Esto no solo te permitirá gestionar tu inventario de manera eficiente, sino que también mantendrá actualizado el stock en tiempo real ⏱️. Cada vez que se efectúe una compra en la webapp 🛒, el valor real del stock se actualizará automáticamente, evitando la venta de productos fuera de inventario ⚠️ y previniendo malentendidos con los clientes 🤝. ¡Una solución integral para que tu tienda siempre esté al día! 🌟</p>
+
 <h2 align="center">🔐 Sistema de cuentas de usuario</h2>
 
 <p align="justify">En Pets Go, la seguridad y la comodidad del usuario son nuestra prioridad. Contamos con un sistema de autenticación completamente seguro y fiable, construido con <img alt="Static Badge" src="https://img.shields.io/badge/Firebase%20Authentication-%23ffac42">, que garantiza la protección de sus datos y una experiencia de compra segura 🛒. Esto significa que los usuarios deberán loguearse para poder realizar sus compras, pero se les garantiza una capa extra de seguridad y control sobre sus transacciones.</p>
@@ -68,4 +74,5 @@ Entre sus secciones, esta tienda online incluye:</p>
 Además, el registro es rápido y sencillo 🚀. Los usuarios solo deben proporcionar algunos datos básicos y pueden elegir una imagen de avatar 🖼️ que los identificará cada vez que inicien sesión. Este avatar personaliza la experiencia de cada cliente, haciendo que su paso por la tienda sea único.
 
 Finalmente, Pets Go incluye un sistema de historial de compras 📜, donde los usuarios pueden revisar todas sus transacciones, desde la más antigua hasta la más reciente. Esto les permitirá llevar un control de sus pedidos y tener un registro completo de sus compras en tu tienda 📦.</p>
+
 
