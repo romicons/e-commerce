@@ -35,7 +35,7 @@
 
 </div>
 
-<p align="center"> Welcome to a unique experience in the vast universe of A Song of ❄️ Ice and 🔥 Fire.</p>
+<p align="justify">¿Sos de los que piensa que las mascotas merecen lo mejor? Pets Go es mucho más que una tienda online; es un rincón especial para quienes desean consentir y cuidar a sus compañeros de vida con productos de calidad, variedad, y un toque de amor. Con una interfaz atractiva e interactiva, te ofrecemos una experiencia de usuario refinada para que encuentres todo lo que necesitas para mimar a tus amigos peludos, a tan solo un par de clics de distancia. Preparate para descubrir todo lo que tenemos para ofrecerte.</p>
 
 
 
