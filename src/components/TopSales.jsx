@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { ProductsContext } from '../context/ProductsContext';
 
-import { Flex, Heading, SimpleGrid, Spinner, Text, VStack } from '@chakra-ui/react';
+import { Heading, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 
 import { Product } from './Product';
 
 
 export const TopSales = () => {
-    const { productsArray, isLoading } = useContext(ProductsContext);
+    const { productsArray } = useContext(ProductsContext);
 
 
     const filteredProducts = productsArray.filter((product) => product.istopsale === "yes");
