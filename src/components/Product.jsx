@@ -18,7 +18,7 @@ export const Product = ({ product }) => {
     };
 
     return (
-        <VStack padding={4} gap={2} boxShadow="md" w='300px' justifyContent='center' alignItems='center' borderRadius='lg' bg={inputBgColor}>
+        <VStack padding={4} gap={2} boxShadow="md" w='300px' minHeight='405px' justifyContent='center' alignItems='center' borderRadius='lg' bg={inputBgColor}>
             <Image
                 boxSize='180px'
                 objectFit='contain'
