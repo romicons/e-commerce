@@ -46,3 +46,25 @@ Pero no te preocupes, ¡registrarse en Pets Go es rápido y sencillo! 🚀 Sólo
 <p align="justify">
 Además, tendrás acceso a tu historial de compras 📜, donde podrás ver todas tus transacciones, organizadas desde la más antigua hasta la más reciente. Esto te permitirá llevar un registro completo de tus pedidos 📦 y tener control total sobre tus compras en nuestra plataforma.</p>
 
+<h2 align="center">🌟 Diseño atractivo y navegación intuitiva</h2>
+
+<p align="justify">
+En Pets Go, nos enfocamos en ofrecer una experiencia de usuario impecable 🖥️. Nuestro diseño no solo es atractivo a la vista, sino también sumamente intuitivo, pensado para guiar al usuario de forma sencilla y ayudarlo en cada paso del proceso de compra. Navegar por Pets Go es fácil y fluido, asegurando que encuentres lo que necesitas sin complicaciones.
+
+Entre sus secciones, nuestra tienda online incluye:</p>
+
+  🏠 Home: el punto de partida, donde tu usuario podrá descubrir las noticias más frecuentes, ofertas y las marcas con las que trabajas.
+
+   📂 Categorías: para facilitar la búsqueda, hemos dividido y segmentado los productos de acuerdo a su uso.
+
+   🐾 Sección de productos: con toda tu selección disponible, para que tu usuario explore libremente.
+
+   ❓ Preguntas frecuentes (FAQ): aquí podrás responder a las dudas más comunes, de manera que tus clientes tengan toda la información que necesitan.
+
+   🌟 Sobre Nosotros: una sección para conocer la misión y los valores que inspiran a tu empresa.
+
+  🔍 Barra de búsqueda avanzada: para que tu usuario filtre rápidamente por productos específicos para perros o gatos, o busque manualmente por el nombre de un producto.
+
+
+En Pets Go, nuestra meta es hacer que la experiencia de tus clientes sea rápida, agradable y sin complicaciones. Queremos que encuentre lo que buscas de manera fácil y disfrute de todo el proceso. ¡Estamos aquí para ayudarte en cada clic!
+
