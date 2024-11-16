@@ -41,7 +41,7 @@
 <h2 align="center">🌟 Diseño atractivo y navegación intuitiva</h2>
 
 <p align="justify">
-En Pets Go, nos enfocamos en la experiencia de usuario. Nuestro diseño no solo es visualmente atractivo 🖥️, sino que también está optimizado para que los visitantes puedan navegar de manera sencilla y fluida, guiándolos paso a paso durante su proceso de compra. Pets Go facilita que tus clientes encuentren lo que necesitan rápidamente, sin complicaciones.
+En Pets Go, nos enfocamos en la experiencia de usuario. Nuestro diseño no solo es visualmente atractivo 🖥️, sino que también está optimizado para ofrecer una navegación sencilla y fluida. Valiéndonos de <img alt="Static Badge" src="https://img.shields.io/badge/Chakra%20UI-%23ffac42">, hemos logrado una interfaz intuitiva que guía a los visitantes paso a paso durante su proceso de compra, asegurando que encuentren lo que necesitan rápidamente y sin complicaciones.
 
 Entre sus secciones, esta tienda online incluye:</p>
 <ul>
@@ -63,11 +63,9 @@ Entre sus secciones, esta tienda online incluye:</p>
 
 <h2 align="center">🔐 Sistema de cuentas de usuario</h2>
 
-<p align="justify">En Pets Go, la seguridad y la comodidad del usuario son nuestra prioridad. Contamos con un sistema de autenticación completamente seguro y fiable, construido con <img alt="Static Badge" src="https://img.shields.io/badge/Firebase%20Authentication-%23ffac42">, que garantiza la protección de tus datos y una experiencia de compra segura 🛒. Esto significa que los usuarios deberán loguearse para poder realizar sus compras, pero se les garantiza una capa extra de seguridad y control sobre sus transacciones.</p>
+<p align="justify">En Pets Go, la seguridad y la comodidad del usuario son nuestra prioridad. Contamos con un sistema de autenticación completamente seguro y fiable, construido con <img alt="Static Badge" src="https://img.shields.io/badge/Firebase%20Authentication-%23ffac42">, que garantiza la protección de sus datos y una experiencia de compra segura 🛒. Esto significa que los usuarios deberán loguearse para poder realizar sus compras, pero se les garantiza una capa extra de seguridad y control sobre sus transacciones.</p>
 <p align="justify"> 
-Pero no te preocupes, ¡registrarse en Pets Go es rápido y sencillo! 🚀 Sólo necesitas proporcionar algunos datos básicos, y como parte del proceso, podrás elegir una imagen de avatar que aparecerá siempre que inicies sesión. Este avatar te acompañará a lo largo de tu experiencia en nuestra tienda, haciéndola más personal y única ✨.
-</p>
-<p align="justify">
-Además, tendrás acceso a tu historial de compras 📜, donde podrás ver todas tus transacciones, organizadas desde la más antigua hasta la más reciente. Esto te permitirá llevar un registro completo de tus pedidos 📦 y tener control total sobre tus compras en nuestra plataforma.</p>
+Además, el registro es rápido y sencillo 🚀. Los usuarios solo deben proporcionar algunos datos básicos y pueden elegir una imagen de avatar 🖼️ que los identificará cada vez que inicien sesión. Este avatar personaliza la experiencia de cada cliente, haciendo que su paso por la tienda sea único.
 
+Finalmente, Pets Go incluye un sistema de historial de compras 📜, donde los usuarios pueden revisar todas sus transacciones, desde la más antigua hasta la más reciente. Esto les permitirá llevar un control de sus pedidos y tener un registro completo de sus compras en tu tienda 📦.</p>
 
