@@ -37,13 +37,3 @@
 
 <p align="justify">¿Sos de los que piensa que las mascotas merecen lo mejor? Pets Go es mucho más que una tienda online; es un rincón especial para quienes desean consentir y cuidar a sus compañeros de vida con productos de calidad, variedad, y un toque de amor. Con una interfaz atractiva e interactiva, te ofrecemos una experiencia de usuario refinada para que encuentres todo lo que necesitas para mimar a tus amigos peludos, a tan solo un par de clics de distancia. Preparate para descubrir todo lo que tenemos para ofrecerte.</p>
 
-
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
