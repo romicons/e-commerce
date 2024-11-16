@@ -63,7 +63,7 @@ Entre sus secciones, esta tienda online incluye:</p>
 
 <h2 align="center">📦 Gestión de Inventario en Tiempo Real</h2>
 
-<p align="justify">En Pets Go, nos aseguramos de que tu tienda esté siempre actualizada y optimizada. Gracias al uso de <img alt="Static Badge" src="https://img.shields.io/badge/Firebase%20Storage-%23ffac42"> 📦 y <img alt="Static Badge" src="https://img.shields.io/badge/Firebase%20Database-%23ffac42"> 🗄️, podrás contar con una base de datos completamente personalizable, donde podrás cargar y organizar tus productos en las categorías que desees 🏷️.
+<p align="justify">En Pets Go, nos aseguramos de que tu tienda esté siempre actualizada y optimizada. Gracias al uso de <img alt="Static Badge" src="https://img.shields.io/badge/Firebase%20Storage-%23ffac42"> 📦 y <img alt="Static Badge" src="https://img.shields.io/badge/Firestore%20Database-%23ffac42"> 🗄️, podrás contar con una base de datos completamente personalizable, donde podrás cargar y organizar tus productos en las categorías que desees 🏷️.
 
 Esto no solo te permitirá gestionar tu inventario de manera eficiente, sino que también mantendrá actualizado el stock en tiempo real ⏱️. Cada vez que se efectúe una compra en la webapp 🛒, el valor real del stock se actualizará automáticamente, evitando la venta de productos fuera de inventario ⚠️ y previniendo malentendidos con los clientes 🤝. ¡Una solución integral para que tu tienda siempre esté al día! 🌟</p>
 
