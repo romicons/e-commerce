@@ -229,7 +229,7 @@ export const Footer = () => {
                 flexDirection={contactFlexDirection}
             >
                 <Text fontSize='lg' textAlign='center'>
-                    © Romina Constantinoff - 2024. Todos los derechos reservados. 
+                    © Romina Constantinoff - 2025. Todos los derechos reservados. 
                 </Text>
                 
                 <Box display="flex" flexDirection="column" alignItems="center">
