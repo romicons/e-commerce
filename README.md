@@ -75,4 +75,11 @@ Además, el registro es rápido y sencillo 🚀. Los usuarios solo deben proporc
 
 Finalmente, Pets Go incluye un sistema de historial de compras 📜, donde los usuarios pueden revisar todas sus transacciones, desde la más antigua hasta la más reciente. Esto les permitirá llevar un control de sus pedidos y tener un registro completo de sus compras en tu tienda 📦.</p>
 
+<div align="center">
 
+<img src="https://i.imgur.com/9kfXeAJ.png" width=120px alt="romicons profile picture">
+
+</div>
+
+
+<h3 align="center">romicons</h3>
